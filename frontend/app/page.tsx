@@ -1,3 +1,2 @@
-export default function Page() {
-  return null;
-}
+'use client';
+import { useEffect } from 'react';
