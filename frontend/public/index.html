@@ -501,7 +501,7 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">datacolab</div>
+  <div class="nav-logo"><img src="/logo-datacolab.png" alt="Datacolab" style="height:32px;width:auto;"></div>
   <ul class="nav-links">
     <li><a href="#cases"><span class="az">Keyslərimiz</span><span class="ru">Кейсы</span><span class="en">Case Studies</span></a></li>
     <li><a href="#services"><span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span></a></li>
@@ -599,8 +599,8 @@ footer{
       <span class="en">Trusted by</span>
     </span>
     <div class="trusted-logos">
-      <span class="logo-item">MENTORIX</span>
-      <span class="logo-item">MEDPANEL</span>
+      <span class="logo-item"><img src="/logo-mentorix.png" alt="Mentorix" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1);"></span>
+<span class="logo-item"><img src="/logo-medpanel.png" alt="MedPanel" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1);"></span>
       <span class="logo-item">EDUTECH AZ</span>
       <span class="logo-item">CLINICPRO</span>
       <span class="logo-item">STARTUPBAKU</span>
@@ -636,7 +636,8 @@ footer{
           <span class="ru">Образовательная платформа</span>
           <span class="en">Education Platform</span>
         </span>
-        <h3 class="case-title">Mentorix</h3>
+        <img src="/logo-mentorix.png" alt="Mentorix" style="height:28px;width:auto;margin-bottom:8px;display:block;">
+<h3 class="case-title">Mentorix</h3>
         <p class="case-desc">
           <span class="az">Tam funksiyalı mentorluq və tədris idarəetmə sistemi</span>
           <span class="ru">Полнофункциональная система управления наставничеством</span>
@@ -695,7 +696,8 @@ footer{
           <span class="ru">Медицинская система</span>
           <span class="en">Medical System</span>
         </span>
-        <h3 class="case-title">Medpanel</h3>
+        <img src="/logo-medpanel.png" alt="MedPanel" style="height:36px;width:auto;margin-bottom:8px;display:block;">
+<h3 class="case-title">Medpanel</h3>
         <p class="case-desc">
           <span class="az">Klinika üçün tam idarəetmə və analitika platforması</span>
           <span class="ru">Полная система управления клиникой с аналитикой</span>
@@ -1362,7 +1364,7 @@ footer{
 
     <div class="contact-grid">
       <div class="contact-info">
-        <a class="contact-method" href="https://wa.me/994XXXXXXXXX" target="_blank">
+        <a class="contact-method" href="https://wa.me/994553775770" target="_blank">
           <div class="method-icon">💬</div>
           <div>
             <div class="method-title">WhatsApp</div>
@@ -1380,11 +1382,11 @@ footer{
             <div class="method-sub">@datacolab</div>
           </div>
         </a>
-        <a class="contact-method" href="mailto:hello@datacolab.az">
+        <a class="contact-method" href="mailto:info@datacolab.co">
           <div class="method-icon">📧</div>
           <div>
             <div class="method-title">Email</div>
-            <div class="method-sub">hello@datacolab.az</div>
+            <div class="method-sub">info@datacolab.co</div>
           </div>
         </a>
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px">
@@ -1406,7 +1408,7 @@ footer{
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xpqbwvwj" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>
@@ -1458,7 +1460,7 @@ footer{
   <div class="footer-inner">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">datacolab</div>
+        <div class="footer-logo"><img src="/logo-datacolab.png" alt="Datacolab" style="height:28px;width:auto;"></div>
         <p class="footer-tagline">
           <span class="az">Sistem qurucuları. Freelancer deyilik, agency deyilik.</span>
           <span class="ru">Строители систем. Не фрилансеры, не агентство.</span>
@@ -1495,7 +1497,7 @@ footer{
           <span class="az">Əlaqə</span><span class="ru">Контакты</span><span class="en">Contact</span>
         </h4>
         <ul>
-          <li><a href="mailto:hello@datacolab.az">hello@datacolab.az</a></li>
+          <li><a href="mailto:info@datacolab.co">info@datacolab.co</a></li>
           <li><a href="#">Telegram</a></li>
           <li><a href="#">WhatsApp</a></li>
           <li><a href="#">
@@ -1561,13 +1563,7 @@ function calcROI() {
 calcROI();
 
 // FORM
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type=submit]');
-  btn.textContent = '✓ Sent!';
-  btn.style.background = 'var(--accent3)';
-  setTimeout(() => { btn.textContent = 'Send message →'; btn.style.background = ''; }, 3000);
-}
+
 
 // SCROLL ANIMATIONS
 const observer = new IntersectionObserver((entries) => {
