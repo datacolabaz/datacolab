@@ -10,7 +10,7 @@ const validateContact = [
   body('message').trim().isLength({ min: 10 }).withMessage('Message must be at least 10 characters'),
 ];
 
-contactRouter.post('/', validateContact, async (req, res) => {
+contactRouter.post('/', validateContact, async (req: any, res: any) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
