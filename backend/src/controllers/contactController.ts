@@ -35,7 +35,7 @@ export async function sendContactEmail(payload: ContactPayload) {
   // Send to admin
   await transporter.sendMail({
     from: process.env.SMTP_USER,
-    to: process.env.ADMIN_EMAIL || 'hello@datacolab.az',
+    to: 'datacolabaz@gmail.com',
     subject: `[Datacolab] New contact from ${name}`,
     html,
     replyTo: email,
@@ -43,7 +43,7 @@ export async function sendContactEmail(payload: ContactPayload) {
 
   // Send confirmation to user
   await transporter.sendMail({
-    from: `"Datacolab" <${process.env.SMTP_USER}>`,
+    from: '"Datacolab" <info@datacolab.co>',
     to: email,
     subject: 'We received your message — Datacolab',
     html: `

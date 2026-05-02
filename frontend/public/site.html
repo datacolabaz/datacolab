@@ -1362,7 +1362,7 @@ footer{
 
     <div class="contact-grid">
       <div class="contact-info">
-        <a class="contact-method" href="https://wa.me/994XXXXXXXXX" target="_blank">
+        <a class="contact-method" href="https://wa.me/994553775770" target="_blank">
           <div class="method-icon">💬</div>
           <div>
             <div class="method-title">WhatsApp</div>
@@ -1380,11 +1380,11 @@ footer{
             <div class="method-sub">@datacolab</div>
           </div>
         </a>
-        <a class="contact-method" href="mailto:hello@datacolab.az">
+        <a class="contact-method" href="mailto:info@datacolab.co">
           <div class="method-icon">📧</div>
           <div>
             <div class="method-title">Email</div>
-            <div class="method-sub">hello@datacolab.az</div>
+            <div class="method-sub">info@datacolab.co</div>
           </div>
         </a>
         <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px">
@@ -1406,7 +1406,7 @@ footer{
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xpqbwvwj" method="POST">
         <div class="form-row">
           <div class="form-field">
             <label>
@@ -1495,7 +1495,7 @@ footer{
           <span class="az">Əlaqə</span><span class="ru">Контакты</span><span class="en">Contact</span>
         </h4>
         <ul>
-          <li><a href="mailto:hello@datacolab.az">hello@datacolab.az</a></li>
+          <li><a href="mailto:info@datacolab.co">info@datacolab.co</a></li>
           <li><a href="#">Telegram</a></li>
           <li><a href="#">WhatsApp</a></li>
           <li><a href="#">
@@ -1561,13 +1561,7 @@ function calcROI() {
 calcROI();
 
 // FORM
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type=submit]');
-  btn.textContent = '✓ Sent!';
-  btn.style.background = 'var(--accent3)';
-  setTimeout(() => { btn.textContent = 'Send message →'; btn.style.background = ''; }, 3000);
-}
+
 
 // SCROLL ANIMATIONS
 const observer = new IntersectionObserver((entries) => {
