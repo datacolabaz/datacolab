@@ -1,0 +1,178 @@
+{
+  "nav": {
+    "cases": "Keyslərimiz",
+    "services": "Xidmətlər",
+    "process": "Proses",
+    "roi": "ROI Hesablayıcı",
+    "blog": "Blog",
+    "cta": "Layihə başlat"
+  },
+  "hero": {
+    "badge": "Hazırda 2 aktiv layihə üzərində işləyirik",
+    "headline1": "Biz",
+    "headline2": "sistemlər",
+    "headline3": "qururuq, saytlar yox",
+    "sub": "İdeadan produksiyaya: SaaS, platformalar, avtomatlaşdırma, analitika. Biz freelancer deyilik, agency deyilik — biz sistem qurucularıq.",
+    "cta1": "Layihə başlat",
+    "cta2": "Keyslərimizə bax",
+    "stat1_num": "12+",
+    "stat1_label": "Tamamlanan Sistem",
+    "stat2_num": "3x",
+    "stat2_label": "Ortalama Effektivlik",
+    "stat3_num": "100%",
+    "stat3_label": "Müştəri Məmnuniyyəti"
+  },
+  "trusted": {
+    "label": "Etibar edir"
+  },
+  "cases": {
+    "label": "Həqiqi Nəticələr",
+    "title": "Qurduğumuz sistemlər",
+    "sub": "Hər layihə həqiqi problemin həlli üçün qurulmuş real sistemdir. Demo yox, produksiya.",
+    "problem": "Problem",
+    "solution": "Həll",
+    "result": "Nəticə",
+    "mentorix": {
+      "tag": "Təhsil Platforması",
+      "desc": "Tam funksiyalı mentorluq və tədris idarəetmə sistemi",
+      "feat1": "Tələbə izləmə",
+      "feat2": "Ödəniş avtomatlaşması",
+      "feat3": "SMS xatırlatmalar",
+      "problem": "Manual tələbə qeydi, ödəniş itkiləri, sınaq buraxmaları — tam xaos.",
+      "solution": "Tələbə ömür dövrünü tam idarə edən platform: qeydiyyat, ödəniş, SMS, analitika.",
+      "result": "+40% ödəniş toplanması. 0 manual giriş. Real produksiya sistemi."
+    },
+    "medpanel": {
+      "tag": "Klinik Sistem",
+      "desc": "Klinika üçün tam idarəetmə və analitika platforması",
+      "feat1": "Xəstə idarəetmə",
+      "feat2": "Görüş sistemi",
+      "feat3": "Analitika",
+      "problem": "Kağız kartlar, itirilən görüşlər, heç bir analitika — tibb müəssisəsi körü-körünə işləyirdi.",
+      "solution": "Real vaxtlı görüş idarəetmə, xəstə tarixi, həkim performans tabloları.",
+      "result": "Gündəlik 200+ görüşü idarə edir. Xəstə məmnuniyyəti 2x artdı."
+    }
+  },
+  "services": {
+    "label": "Nə qururuq",
+    "title": "Nəticə üzrə xidmətlər",
+    "sub": "Generic texnologiya siyahısı deyil. Hər qrup real biznes nəticəsinə yönəlib.",
+    "build": {
+      "outcome": "QUR",
+      "title": "Məhsul & Platforma",
+      "items": ["SaaS inkişafı", "Veb tətbiqlər", "Platformalar & marketpleyslər", "İstifadəçi portalları"]
+    },
+    "automate": {
+      "outcome": "AVTOMATLAŞDIRin",
+      "title": "Biznes Avtomatlaşması",
+      "items": ["Biznes prosesi avtomatlaşması", "CRM sistemləri", "Ödəniş & bildiriş sistemləri", "İş axını inteqrasiyaları"]
+    },
+    "analyze": {
+      "outcome": "ANALİZ ET",
+      "title": "Data & Analitika",
+      "items": ["Data tabloları", "Analitika sistemləri", "Hesabat alətləri", "KPI izləmə"]
+    },
+    "grow": {
+      "outcome": "BÖYÜT",
+      "title": "Böyümə & Optimizasiya",
+      "items": ["SEO & axtarış görünürlüyü", "Performans optimizasiyası", "Texniki konsultasiya", "Sistem auditi"]
+    }
+  },
+  "process": {
+    "label": "Necə qururuq",
+    "title": "Prosesin hər addımı şəffafdır",
+    "steps": [
+      { "title": "Problem Analizi", "desc": "Sizi dinləyirik. Nəyin sınıq olduğunu başa düşürük. Texnologiyadan əvvəl biznes prosesini anlayırıq." },
+      { "title": "Sistem Dizaynı", "desc": "Arxitektura, verilənlər axını, istifadəçi yolculuğu — hər şey inkişafdan əvvəl sənədləşdirilir." },
+      { "title": "MVP & Test", "desc": "2–4 həftə ərzində real istifadəçilərlə test edilə bilən MVP. Tez rəy, tez dəyişiklik." },
+      { "title": "Ölçəklənmə", "desc": "Sistemi böyüyürsünüz, biz onla böyüyürük. Performans, etibarlılıq, yeni funksiyalar." }
+    ]
+  },
+  "roi": {
+    "label": "ROI Hesablayıcı",
+    "title": "Avtomatlaşdırma sizə nə qazandırır?",
+    "biz_type": "Biznes növü",
+    "biz_options": ["Təhsil / Kurslar", "Klinika / Tibb", "Pərakəndə / E-ticarət", "Xidmət biznesi"],
+    "clients": "Aylıq müştəri sayı",
+    "hours": "Manual iş saatı / həftə",
+    "rate": "Saatlıq əmək haqqı (₼)",
+    "savings_label": "AYLIQ QƏNAƏT",
+    "with": "avtomatlaşdırma ilə",
+    "hours_saved": "Qənaət edilən saatlar/ay",
+    "error_reduction": "Xəta azalması",
+    "annual": "İllik qənaət",
+    "cta": "Hesablamama bax →"
+  },
+  "blog": {
+    "label": "Biliklər",
+    "title": "Düşüncələrimiz",
+    "read": "Oxu",
+    "posts": [
+      {
+        "tag": "SAAS",
+        "title": "2026-da SaaS necə qurulur",
+        "excerpt": "Çoxları SaaS qurmağın texnologiya haqqında olduğunu düşünür. Əslində bu, problemin dəqiqliyi haqqındadır.",
+        "read_time": "5 dəq oxu"
+      },
+      {
+        "tag": "UĞURSUZLUQ",
+        "title": "Niyə əksər tətbiqlər uğursuz olur",
+        "excerpt": "Texniki borclar deyil. Yanlış problem həll edilir. Biz 8 real nümunəni araşdırdıq.",
+        "read_time": "8 dəq oxu"
+      },
+      {
+        "tag": "AVTOMATLAŞdirma",
+        "title": "Hər kiçik biznes avtomatlaşdıra biləcəyi 5 proses",
+        "excerpt": "Ödənişlər, xatırlatmalar, hesabatlar, müştəri onboardingi, inventar. Bunların hamısı avtomatlaşdırıla bilər.",
+        "read_time": "6 dəq oxu"
+      }
+    ],
+    "lead_title": "Pulsuz SaaS İdea Doğrulama Yoxlama Siyahısı",
+    "lead_sub": "Aylarca vaxt itirməzdən əvvəl ideanızın işləyəcəyini necə yoxlamaq olar",
+    "lead_cta": "Yüklə (PDF)"
+  },
+  "testimonials": {
+    "label": "Müştərilər",
+    "title": "İnsanlar nə deyir",
+    "items": [
+      {
+        "quote": "Datacolab sadəcə sayt qurmadı — biznesimizdə tam bir sistem inqilabı etdi. Ödəniş toplanmasımız 3 ay ərzində 40% artdı.",
+        "name": "Elçin Məmmədov",
+        "role": "Mentorix — Qurucu"
+      },
+      {
+        "quote": "Kağız kartlardan tam rəqəmsal sistemə keçid cəmi 6 həftə çəkdi. İndi gündə 200+ xəstəni asanlıqla idarə edirik.",
+        "name": "Nigar Həsənova",
+        "role": "Medpanel — Klinika Direktoru"
+      },
+      {
+        "quote": "Onlarla işləmək fərqlidir. Öncə problemi başa düşürlər, sonra qururlar. Bu yanaşma adi inkişaf şirkətlərindən tamamilə fərqlidir.",
+        "name": "Rəşad Babayev",
+        "role": "EduTech AZ — CTO"
+      }
+    ]
+  },
+  "contact": {
+    "label": "Əlaqə",
+    "title": "Layihənizi başlayaq",
+    "sub": "Layihə haqqında danışmaq üçün formu doldurun. 24 saat ərzində cavab veririk.",
+    "whatsapp": "Birbaşa yazın",
+    "book_title": "Zəng planla",
+    "book_sub": "30 dəqiqəlik pulsuz konsultasiya",
+    "book_btn": "Slot seçin",
+    "name": "Ad",
+    "email": "Email",
+    "biz_type": "Biznes növü",
+    "message": "Layihəniz haqqında danışın",
+    "submit": "Mesaj göndər",
+    "success": "Göndərildi! Tezliklə əlaqə saxlayacağıq."
+  },
+  "footer": {
+    "tagline": "Sistem qurucuları. Freelancer deyilik, agency deyilik.",
+    "services": "Xidmətlər",
+    "company": "Şirkət",
+    "contact": "Əlaqə",
+    "rights": "Bütün hüquqlar qorunur",
+    "badge": "SİSTEM QURUCULARI"
+  }
+}

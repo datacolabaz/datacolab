@@ -1,0 +1,178 @@
+{
+  "nav": {
+    "cases": "Case Studies",
+    "services": "Services",
+    "process": "Process",
+    "roi": "ROI Calculator",
+    "blog": "Blog",
+    "cta": "Start a Project"
+  },
+  "hero": {
+    "badge": "Currently building 2 active projects",
+    "headline1": "We build",
+    "headline2": "systems,",
+    "headline3": "not just websites",
+    "sub": "From idea to production: SaaS, platforms, automation, analytics. We're not freelancers, not an agency — we're system builders.",
+    "cta1": "Start a Project",
+    "cta2": "View Case Studies",
+    "stat1_num": "12+",
+    "stat1_label": "Systems Built",
+    "stat2_num": "3x",
+    "stat2_label": "Avg. Efficiency Gain",
+    "stat3_num": "100%",
+    "stat3_label": "Client Satisfaction"
+  },
+  "trusted": {
+    "label": "Trusted by"
+  },
+  "cases": {
+    "label": "Real Results",
+    "title": "Systems we've built",
+    "sub": "Every project is a real system built to solve a real problem. Not a demo — production.",
+    "problem": "Problem",
+    "solution": "Solution",
+    "result": "Result",
+    "mentorix": {
+      "tag": "Education Platform",
+      "desc": "Full-featured mentoring & learning management system",
+      "feat1": "Student tracking",
+      "feat2": "Payment automation",
+      "feat3": "SMS reminders",
+      "problem": "Manual student records, missed payments, attendance gaps — complete operational chaos.",
+      "solution": "Platform managing the full student lifecycle: registration, payments, SMS alerts, analytics.",
+      "result": "+40% payment collection. Zero manual data entry. Live production system."
+    },
+    "medpanel": {
+      "tag": "Medical System",
+      "desc": "Complete clinic management and analytics platform",
+      "feat1": "Patient management",
+      "feat2": "Appointment system",
+      "feat3": "Analytics",
+      "problem": "Paper records, lost appointments, zero analytics — the clinic was operating blind.",
+      "solution": "Real-time appointment management, patient history, doctor performance dashboards.",
+      "result": "Handles 200+ appointments daily. Patient satisfaction doubled. Fully paperless."
+    }
+  },
+  "services": {
+    "label": "What we build",
+    "title": "Services by outcome",
+    "sub": "Not a technology list. Every group is oriented toward a real business outcome.",
+    "build": {
+      "outcome": "BUILD",
+      "title": "Product & Platform",
+      "items": ["SaaS development", "Web applications", "Platforms & marketplaces", "User portals & dashboards"]
+    },
+    "automate": {
+      "outcome": "AUTOMATE",
+      "title": "Business Automation",
+      "items": ["Business process automation", "CRM systems", "Payment & notification systems", "Workflow integrations"]
+    },
+    "analyze": {
+      "outcome": "ANALYZE",
+      "title": "Data & Analytics",
+      "items": ["Data dashboards", "Analytics systems", "Reporting tools", "KPI monitoring"]
+    },
+    "grow": {
+      "outcome": "GROW",
+      "title": "Growth & Optimization",
+      "items": ["SEO & search visibility", "Performance optimization", "Technical consulting", "System audit"]
+    }
+  },
+  "process": {
+    "label": "How we build",
+    "title": "Every step of the process is transparent",
+    "steps": [
+      { "title": "Problem Analysis", "desc": "We listen. We understand what's broken. We learn the business before we touch a keyboard." },
+      { "title": "System Design", "desc": "Architecture, data flows, user journeys — all documented before development begins." },
+      { "title": "MVP & Testing", "desc": "Testable MVP with real users in 2–4 weeks. Fast feedback, fast iteration." },
+      { "title": "Scaling", "desc": "You grow, we grow with you. Performance, reliability, new features — on demand." }
+    ]
+  },
+  "roi": {
+    "label": "ROI Calculator",
+    "title": "What will automation earn you?",
+    "biz_type": "Business type",
+    "biz_options": ["Education / Courses", "Clinic / Healthcare", "Retail / E-commerce", "Service business"],
+    "clients": "Monthly clients",
+    "hours": "Manual work hours / week",
+    "rate": "Hourly labor cost (₼)",
+    "savings_label": "MONTHLY SAVINGS",
+    "with": "with automation",
+    "hours_saved": "Hours saved / month",
+    "error_reduction": "Error reduction",
+    "annual": "Annual savings",
+    "cta": "Get my estimate →"
+  },
+  "blog": {
+    "label": "Insights",
+    "title": "Our thinking",
+    "read": "Read",
+    "posts": [
+      {
+        "tag": "SAAS",
+        "title": "How to build SaaS in 2026",
+        "excerpt": "Most people think building SaaS is about technology. It's actually about precision of problem definition.",
+        "read_time": "5 min read"
+      },
+      {
+        "tag": "FAILURE",
+        "title": "Why most apps fail",
+        "excerpt": "It's not technical debt. It's solving the wrong problem. We analyzed 8 real cases.",
+        "read_time": "8 min read"
+      },
+      {
+        "tag": "AUTOMATION",
+        "title": "5 processes every small business can automate now",
+        "excerpt": "Payments, reminders, reports, customer onboarding, inventory. All automatable.",
+        "read_time": "6 min read"
+      }
+    ],
+    "lead_title": "Free SaaS Idea Validation Checklist",
+    "lead_sub": "How to know your idea works before spending months building it",
+    "lead_cta": "Download (PDF)"
+  },
+  "testimonials": {
+    "label": "Clients",
+    "title": "What people say",
+    "items": [
+      {
+        "quote": "Datacolab didn't just build a website — they revolutionized how we operate. Payment collection went up 40% in 3 months.",
+        "name": "Elçin Məmmədov",
+        "role": "Mentorix — Founder"
+      },
+      {
+        "quote": "Moving from paper records to a full digital system took just 6 weeks. Now we handle 200+ patients daily with ease.",
+        "name": "Nigar Həsənova",
+        "role": "Medpanel — Clinic Director"
+      },
+      {
+        "quote": "Working with them is different. They understand the problem first, then build. Completely different from typical dev shops.",
+        "name": "Rəşad Babayev",
+        "role": "EduTech AZ — CTO"
+      }
+    ]
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's start your project",
+    "sub": "Fill out the form to discuss your project. We respond within 24 hours.",
+    "whatsapp": "Message directly",
+    "book_title": "Book a call",
+    "book_sub": "30-minute free consultation",
+    "book_btn": "Pick a slot",
+    "name": "Name",
+    "email": "Email",
+    "biz_type": "Business type",
+    "message": "Tell us about your project",
+    "submit": "Send message",
+    "success": "Sent! We'll be in touch soon."
+  },
+  "footer": {
+    "tagline": "System builders. Not freelancers, not an agency.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved",
+    "badge": "SYSTEM BUILDERS"
+  }
+}
