@@ -1,6 +1,6 @@
 'use client';
 import { useEffect } from 'react';
 export default function Page() {
-  useEffect(() => { window.location.replace('/site.html'); }, []);
+  useEffect(() => { window.location.replace('/index.html'); }, []);
   return null;
 }
