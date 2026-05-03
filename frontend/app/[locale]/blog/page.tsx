@@ -17,7 +17,7 @@ export default function BlogPage() {
           <h1 style={{ fontSize: 52, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 16 }}>Blog</h1>
           <p style={{ fontSize: 18, color: '#7a7a8e', maxWidth: 500 }}>Sistem qurma, SaaS, avtomatlaşdırma haqqında real təcrübələr</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: 20 }}>
           {posts.map(p => (
             <Link key={p.slug} href={`/blog/${p.slug}`} style={{ textDecoration: 'none' }}>
               <div style={{ background: '#15151e', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 14, padding: 32, cursor: 'pointer', transition: 'all 0.2s', color: '#f0f0f5' }}
