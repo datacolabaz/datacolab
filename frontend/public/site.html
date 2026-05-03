@@ -4,508 +4,172 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Datacolab — We build systems, not just websites</title>
+<meta name="description" content="İdeadan sistemə qədər. SaaS, platformalar, avtomatlaşdırma.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #0a0a0f;
-  --bg2: #111118;
-  --bg3: #18181f;
-  --surface: #1e1e28;
-  --border: rgba(255,255,255,0.07);
-  --border-strong: rgba(255,255,255,0.15);
-  --text: #f0f0f5;
-  --text-muted: #7a7a8e;
-  --text-dim: #4a4a5e;
-  --accent: #5b6af0;
-  --accent2: #8b5cf6;
-  --accent3: #06d6a0;
-  --accent-glow: rgba(91,106,240,0.25);
-  --red: #f05b5b;
-  --yellow: #f0c05b;
-  --card-bg: #15151e;
-  --card-border: rgba(91,106,240,0.15);
-}
-[data-theme="light"] {
-  --bg: #f7f7fc;
-  --bg2: #f0f0f7;
-  --bg3: #e8e8f5;
-  --surface: #ffffff;
-  --border: rgba(0,0,0,0.07);
-  --border-strong: rgba(0,0,0,0.15);
-  --text: #0a0a1a;
-  --text-muted: #5a5a7a;
-  --text-dim: #9a9ab0;
-  --card-bg: #ffffff;
-  --card-border: rgba(91,106,240,0.2);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-  overflow-x:hidden;
-}
-/* TYPOGRAPHY */
+:root{--bg:#0a0a0f;--bg2:#111118;--bg3:#18181f;--surface:#1e1e28;--border:rgba(255,255,255,0.07);--border-strong:rgba(255,255,255,0.15);--text:#f0f0f5;--text-muted:#7a7a8e;--text-dim:#4a4a5e;--accent:#5b6af0;--accent2:#8b5cf6;--accent3:#06d6a0;--yellow:#f0c05b;--card-bg:#15151e;--card-border:rgba(91,106,240,0.15)}
+[data-theme="light"]{--bg:#f7f7fc;--bg2:#f0f0f7;--bg3:#e8e8f5;--surface:#ffffff;--border:rgba(0,0,0,0.07);--border-strong:rgba(0,0,0,0.15);--text:#0a0a1a;--text-muted:#5a5a7a;--text-dim:#9a9ab0;--card-bg:#ffffff;--card-border:rgba(91,106,240,0.2)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15;letter-spacing:-0.02em}
-.mono{font-family:'JetBrains Mono',monospace}
-
-/* NOISE OVERLAY */
-body::before{
-  content:'';position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:1000;opacity:0.4;
-}
-
-/* GRID BACKGROUND */
-.grid-bg{
-  position:fixed;inset:0;
-  background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
-  background-size:60px 60px;
-  pointer-events:none;opacity:0.4;
-}
-
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:900;
-  padding:16px 40px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(10,10,15,0.8);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  transition:all 0.3s;
-}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:0.4}
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;opacity:0.4}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,0.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 [data-theme="light"] nav{background:rgba(247,247,252,0.85)}
-.nav-logo{
-  font-family:'Syne',sans-serif;
-  font-weight:800;font-size:22px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:16px}
 .lang-switcher{display:flex;gap:4px;background:var(--surface);border-radius:8px;padding:3px}
-.lang-btn{
-  border:none;background:transparent;color:var(--text-muted);
-  font-size:11px;font-weight:600;padding:4px 8px;border-radius:5px;cursor:pointer;
-  font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;transition:all 0.2s;
-}
+.lang-btn{border:none;background:transparent;color:var(--text-muted);font-size:11px;font-weight:600;padding:4px 8px;border-radius:5px;cursor:pointer;font-family:'JetBrains Mono',monospace;transition:all 0.2s}
 .lang-btn.active{background:var(--accent);color:#fff}
-.theme-btn{
-  border:1px solid var(--border);background:var(--surface);color:var(--text-muted);
-  width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;
-  display:flex;align-items:center;justify-content:center;transition:all 0.2s;
-}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
-.cta-nav{
-  background:var(--accent);color:#fff;border:none;
-  padding:8px 18px;border-radius:8px;font-size:14px;font-weight:600;
-  cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s;
-}
-.cta-nav:hover{background:var(--accent2);transform:translateY(-1px)}
-
-/* SECTIONS */
+.theme-btn{border:1px solid var(--border);background:var(--surface);color:var(--text-muted);width:36px;height:36px;border-radius:8px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.cta-nav{background:var(--accent);color:#fff;border:none;padding:8px 18px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif}
 section{padding:120px 40px}
 .container{max-width:1200px;margin:0 auto}
-.section-label{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:16px;display:block;
-}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:block}
 .section-title{font-size:clamp(32px,4vw,52px);margin-bottom:20px}
 .section-sub{font-size:18px;color:var(--text-muted);max-width:560px;line-height:1.6}
-
-/* HERO */
-#hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding-top:100px;position:relative;overflow:hidden;
-}
-.hero-glow{
-  position:absolute;top:20%;left:50%;transform:translateX(-50%);
-  width:800px;height:600px;
-  background:radial-gradient(ellipse,rgba(91,106,240,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:100px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(91,106,240,0.12) 0%,transparent 70%);pointer-events:none}
 .hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
-.hero-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  border:1px solid var(--border-strong);background:var(--surface);
-  padding:6px 14px 6px 6px;border-radius:100px;margin-bottom:40px;
-}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border-strong);background:var(--surface);padding:6px 14px 6px 6px;border-radius:100px;margin-bottom:40px}
 .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:pulse 2s infinite}
 .badge-text{font-size:12px;font-weight:500;color:var(--text-muted);font-family:'JetBrains Mono',monospace}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.5)}}
-
-.hero-h1{
-  font-size:clamp(48px,7vw,96px);
-  font-weight:800;
-  line-height:1.05;
-  margin-bottom:28px;
-}
-.hero-h1 .line2{
-  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--accent3) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
+.hero-h1{font-size:clamp(48px,7vw,96px);font-weight:800;line-height:1.05;margin-bottom:28px}
+.line2{background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 50%,var(--accent3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--text-muted);max-width:580px;margin-bottom:48px;line-height:1.7}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:80px}
-.btn-primary{
-  background:var(--accent);color:#fff;border:none;
-  padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;
-  cursor:pointer;font-family:'Syne',sans-serif;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:all 0.25s;position:relative;overflow:hidden;
-}
-.btn-primary::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  opacity:0;transition:opacity 0.25s;
-}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;text-decoration:none}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(91,106,240,0.35)}
-.btn-primary:hover::before{opacity:1}
-.btn-primary span{position:relative}
-.btn-secondary{
-  background:transparent;color:var(--text);
-  border:1px solid var(--border-strong);
-  padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;
-  cursor:pointer;font-family:'Syne',sans-serif;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:all 0.25s;
-}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border-strong);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Syne',sans-serif;display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;text-decoration:none}
 .btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .hero-stats{display:flex;gap:48px;flex-wrap:wrap}
 .stat{border-left:2px solid var(--accent);padding-left:20px}
 .stat-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800}
 .stat-label{font-size:13px;color:var(--text-muted)}
-
-/* TRUSTED BY */
-.trusted-bar{
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:32px 40px;background:var(--bg2);overflow:hidden;
-}
+.trusted-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 40px;background:var(--bg2)}
 .trusted-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:40px}
 .trusted-label{font-size:12px;color:var(--text-dim);white-space:nowrap;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.1em}
-.trusted-logos{display:flex;gap:40px;align-items:center;overflow:hidden}
-.logo-item{
-  font-family:'Syne',sans-serif;font-weight:700;font-size:14px;
-  color:var(--text-dim);letter-spacing:0.05em;white-space:nowrap;
-  transition:color 0.2s;
-}
-.logo-item:hover{color:var(--text-muted)}
-
-/* CASE STUDIES */
+.trusted-logos{display:flex;gap:40px;align-items:center}
+.logo-item{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text-dim)}
 .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px}
-.case-card{
-  background:var(--card-bg);
-  border:1px solid var(--card-border);
-  border-radius:16px;
-  padding:40px;
-  position:relative;overflow:hidden;
-  transition:all 0.3s;
-}
-.case-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
-  opacity:0;transition:opacity 0.3s;
-}
+.case-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;padding:40px;position:relative;overflow:hidden;transition:all 0.3s}
 .case-card:hover{transform:translateY(-4px);border-color:rgba(91,106,240,0.35);box-shadow:0 24px 60px rgba(0,0,0,0.3)}
-.case-card:hover::before{opacity:1}
-.case-tag{
-  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
-  letter-spacing:0.15em;text-transform:uppercase;
-  padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:20px;
-}
+.case-tag{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border-radius:4px;display:inline-block;margin-bottom:20px}
 .tag-edu{background:rgba(6,214,160,0.1);color:var(--accent3);border:1px solid rgba(6,214,160,0.2)}
 .tag-med{background:rgba(91,106,240,0.1);color:var(--accent);border:1px solid rgba(91,106,240,0.2)}
 .case-title{font-size:28px;font-weight:800;margin-bottom:8px}
 .case-desc{font-size:14px;color:var(--text-muted);margin-bottom:28px}
 .case-sections{display:grid;gap:16px}
 .case-section{background:var(--bg3);border-radius:10px;padding:16px 20px}
-.case-section-label{
-  font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:8px;
-}
+.case-section-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);font-family:'JetBrains Mono',monospace;margin-bottom:8px}
 .case-section-text{font-size:14px;color:var(--text-muted);line-height:1.6}
 .case-features{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.feat-tag{
-  font-size:12px;background:var(--bg3);border:1px solid var(--border);
-  border-radius:6px;padding:4px 10px;color:var(--text-muted);
-}
-.case-result{
-  margin-top:24px;padding:20px;
-  background:linear-gradient(135deg,rgba(91,106,240,0.08),rgba(139,92,246,0.08));
-  border:1px solid rgba(91,106,240,0.2);border-radius:10px;
-}
+.feat-tag{font-size:12px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:4px 10px;color:var(--text-muted)}
+.case-result{margin-top:24px;padding:20px;background:linear-gradient(135deg,rgba(91,106,240,0.08),rgba(139,92,246,0.08));border:1px solid rgba(91,106,240,0.2);border-radius:10px}
 .result-label{font-size:10px;color:var(--accent);font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px}
 .result-text{font-size:14px;font-weight:600;color:var(--text)}
-.case-number{
-  position:absolute;top:24px;right:24px;
-  font-family:'Syne',sans-serif;font-size:64px;font-weight:800;
-  color:var(--border);line-height:1;
-}
-
-/* SERVICES */
+.case-number{position:absolute;top:24px;right:24px;font-family:'Syne',sans-serif;font-size:64px;font-weight:800;color:var(--border);line-height:1}
 .services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:60px}
-.service-card{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:32px;transition:all 0.3s;cursor:pointer;
-}
+.service-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:32px;transition:all 0.3s;cursor:pointer}
 .service-card:hover{border-color:var(--card-border);background:var(--surface);transform:translateY(-2px)}
-.service-icon{
-  width:48px;height:48px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;margin-bottom:20px;
-}
-.icon-build{background:rgba(91,106,240,0.12)}
-.icon-auto{background:rgba(6,214,160,0.12)}
-.icon-analyze{background:rgba(240,192,91,0.12)}
-.icon-grow{background:rgba(240,91,91,0.12)}
+.service-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+.icon-build{background:rgba(91,106,240,0.12)}.icon-auto{background:rgba(6,214,160,0.12)}.icon-analyze{background:rgba(240,192,91,0.12)}.icon-grow{background:rgba(240,91,91,0.12)}
 .service-title{font-size:20px;font-weight:700;margin-bottom:8px}
 .service-outcome{font-size:12px;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:16px;letter-spacing:0.1em}
 .service-items{list-style:none;display:flex;flex-direction:column;gap:8px}
 .service-items li{font-size:14px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
 .service-items li::before{content:'→';color:var(--accent);font-size:12px}
-
-/* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px;position:relative}
-.process-grid::before{
-  content:'';position:absolute;top:40px;left:10%;right:10%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
-  opacity:0.4;
-}
-.process-card{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:28px 24px;text-align:center;
-  position:relative;transition:all 0.3s;
-}
+.process-grid::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.4}
+.process-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px 24px;text-align:center;position:relative;transition:all 0.3s}
 .process-card:hover{border-color:var(--card-border);transform:translateY(-4px)}
-.process-num{
-  width:64px;height:64px;border-radius:16px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;
-  margin:0 auto 20px;box-shadow:0 8px 24px rgba(91,106,240,0.3);
-}
+.process-num{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff;margin:0 auto 20px;box-shadow:0 8px 24px rgba(91,106,240,0.3)}
 .process-title{font-size:16px;font-weight:700;margin-bottom:8px}
 .process-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
-
-/* ROI CALCULATOR */
 #roi{background:var(--bg2)}
-.roi-card{
-  background:var(--card-bg);border:1px solid var(--card-border);
-  border-radius:20px;padding:48px;margin-top:40px;
-}
+.roi-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:20px;padding:48px;margin-top:40px}
 .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .roi-form{display:flex;flex-direction:column;gap:20px}
 .roi-field label{font-size:13px;color:var(--text-muted);display:block;margin-bottom:8px;font-weight:500}
-.roi-field select,.roi-field input{
-  width:100%;background:var(--bg3);border:1px solid var(--border);
-  color:var(--text);padding:12px 16px;border-radius:10px;font-size:14px;
-  font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;
-  appearance:none;
-}
-.roi-field select:focus,.roi-field input:focus{border-color:var(--accent)}
-[data-theme="light"] .roi-field select,[data-theme="light"] .roi-field input{background:var(--bg2)}
+.roi-field select,.roi-field input{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:12px 16px;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;appearance:none}
 .roi-slider{width:100%;accent-color:var(--accent)}
-.roi-result{
-  background:linear-gradient(135deg,rgba(91,106,240,0.1),rgba(139,92,246,0.1));
-  border:1px solid rgba(91,106,240,0.2);border-radius:16px;padding:36px;text-align:center;
-}
-.roi-number{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
+.roi-result{background:linear-gradient(135deg,rgba(91,106,240,0.1),rgba(139,92,246,0.1));border:1px solid rgba(91,106,240,0.2);border-radius:16px;padding:36px;text-align:center}
+.roi-number{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .roi-label{font-size:15px;color:var(--text-muted);margin-top:8px}
 .roi-breakdown{margin-top:24px;display:flex;flex-direction:column;gap:10px}
 .roi-row{display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--border)}
 .roi-row:last-child{border-bottom:none;font-weight:700;color:var(--accent)}
-.roi-row span:last-child{color:var(--text)}
-
-/* BLOG */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.blog-card{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:32px;transition:all 0.3s;cursor:pointer;
-}
+.blog-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:32px;transition:all 0.3s;cursor:pointer;text-decoration:none;color:var(--text);display:block}
 .blog-card:hover{border-color:var(--card-border);transform:translateY(-4px)}
-.blog-tag{
-  font-size:10px;font-family:'JetBrains Mono',monospace;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:14px;display:block;
-}
+.blog-tag{font-size:10px;font-family:'JetBrains Mono',monospace;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
 .blog-title{font-size:18px;font-weight:700;margin-bottom:10px;line-height:1.3}
 .blog-excerpt{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px}
-.blog-meta{font-size:12px;color:var(--text-dim);display:flex;justify-content:space-between}
-.read-more{font-size:13px;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:6px;transition:gap 0.2s}
-.blog-card:hover .read-more{gap:10px}
-
-/* TESTIMONIALS */
+.read-more{font-size:13px;color:var(--accent);font-weight:600;display:flex;align-items:center;gap:6px}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
-.testi-card{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:14px;padding:28px;transition:all 0.3s;
-}
+.testi-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all 0.3s}
 .testi-card:hover{border-color:var(--card-border);transform:translateY(-2px)}
 .testi-stars{color:var(--yellow);font-size:14px;margin-bottom:16px;letter-spacing:2px}
 .testi-quote{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;font-style:italic}
 .testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{
-  width:40px;height:40px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:#fff;
-}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:#fff}
 .testi-name{font-weight:700;font-size:14px}
 .testi-role{font-size:12px;color:var(--text-dim)}
-
-/* CONTACT */
 #contact{background:var(--bg2)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;align-items:start}
 .contact-info{display:flex;flex-direction:column;gap:28px}
-.contact-method{
-  display:flex;align-items:center;gap:16px;
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:12px;padding:20px;cursor:pointer;text-decoration:none;color:var(--text);
-  transition:all 0.2s;
-}
+.contact-method{display:flex;align-items:center;gap:16px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;text-decoration:none;color:var(--text);transition:all 0.2s}
 .contact-method:hover{border-color:var(--card-border);transform:translateX(4px)}
-.method-icon{
-  width:44px;height:44px;border-radius:10px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;
-}
+.method-icon{width:44px;height:44px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .method-title{font-weight:700;font-size:15px;margin-bottom:4px}
 .method-sub{font-size:13px;color:var(--text-muted)}
 .contact-form{display:flex;flex-direction:column;gap:16px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-field{display:flex;flex-direction:column;gap:6px}
 .form-field label{font-size:13px;color:var(--text-muted);font-weight:500}
-.form-field input,.form-field textarea,.form-field select{
-  background:var(--card-bg);border:1px solid var(--border);
-  color:var(--text);padding:12px 16px;border-radius:10px;font-size:14px;
-  font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s;
-  appearance:none;
-}
-.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:var(--accent)}
+.form-field input,.form-field textarea,.form-field select{background:var(--card-bg);border:1px solid var(--border);color:var(--text);padding:12px 16px;border-radius:10px;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;appearance:none}
 .form-field textarea{min-height:120px;resize:vertical}
-[data-theme="light"] .form-field input,[data-theme="light"] .form-field textarea,[data-theme="light"] .form-field select{background:var(--surface)}
-.submit-btn{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;border:none;padding:14px 28px;border-radius:10px;
-  font-size:15px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all 0.25s;
-}
+.submit-btn{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.25s}
 .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(91,106,240,0.35)}
-
-/* FOOTER */
-footer{
-  padding:60px 40px 40px;background:var(--bg);
-  border-top:1px solid var(--border);
-}
+footer{padding:60px 40px 40px;background:var(--bg);border-top:1px solid var(--border)}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;margin-bottom:12px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
 .footer-tagline{font-size:14px;color:var(--text-muted);max-width:280px;line-height:1.6}
 .footer-col h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px}
 .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
 .footer-col ul li a{color:var(--text-muted);text-decoration:none;font-size:13px;transition:color 0.2s}
 .footer-col ul li a:hover{color:var(--text)}
-.footer-bottom{
-  border-top:1px solid var(--border);padding-top:28px;
-  display:flex;justify-content:space-between;align-items:center;
-  font-size:12px;color:var(--text-dim);
-}
+.footer-bottom{border-top:1px solid var(--border);padding-top:28px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-dim)}
 .footer-dot{width:4px;height:4px;border-radius:50%;background:var(--accent3);display:inline-block;margin:0 8px;vertical-align:middle}
-
-/* MULTILINGUAL */
 [data-lang] .az,[data-lang] .ru,[data-lang] .en{display:none}
-[data-lang="az"] .az{display:block!important}
-[data-lang="ru"] .ru{display:block!important}
-[data-lang="en"] .en{display:block!important}
+[data-lang="az"] .az{display:block!important}[data-lang="ru"] .ru{display:block!important}[data-lang="en"] .en{display:block!important}
 [data-lang="az"] span.az,[data-lang="ru"] span.ru,[data-lang="en"] span.en{display:inline!important}
-
-/* For inline elements */
 .az,.ru,.en{display:none}
-
-/* DIVIDER */
 .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);margin:0 40px}
-
-/* SCROLL ANIMATIONS */
 .fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-
-/* MOBILE NAV */
-@media(max-width:768px){
-  nav{padding:14px 20px}
-  section{padding:80px 20px}
-  .hero-h1{font-size:42px}
-  .case-grid,.services-grid,.process-grid,.blog-grid,.testimonials-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
-  .roi-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .hero-stats{gap:24px}
-  .trusted-inner{flex-direction:column;gap:16px}
-}
-
-/* STICKY GRADIENT */
-.bottom-gradient{
-  position:fixed;bottom:0;left:0;right:0;height:80px;
-  background:linear-gradient(transparent,var(--bg));
-  pointer-events:none;z-index:50;
-}
-
-/* DEMO SECTION */
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
-.demo-card{
-  background:var(--card-bg);border:1px solid var(--border);
-  border-radius:16px;overflow:hidden;transition:all 0.3s;
-}
+.demo-card{background:var(--card-bg);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s}
 .demo-card:hover{border-color:var(--card-border);transform:translateY(-4px)}
-.demo-screen{
-  background:var(--bg3);padding:24px;
-  display:flex;flex-direction:column;gap:12px;
-  border-bottom:1px solid var(--border);
-  min-height:200px;
-}
-.demo-bar{display:flex;gap:6px;margin-bottom:8px}
-.demo-dot{width:10px;height:10px;border-radius:50%}
-.d1{background:#f05b5b}.d2{background:var(--yellow)}.d3{background:var(--accent3)}
-.demo-ui-row{display:flex;gap:8px;align-items:center}
-.demo-ui-block{background:var(--border);border-radius:4px;height:10px}
-.demo-ui-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));flex-shrink:0}
-.demo-ui-stat{
-  background:var(--surface);border:1px solid var(--border);border-radius:8px;
-  padding:10px 14px;flex:1;
-}
-.demo-ui-stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--accent)}
-.demo-ui-stat-label{font-size:10px;color:var(--text-dim);font-family:'JetBrains Mono',monospace}
 .demo-info{padding:20px 24px}
 .demo-title{font-size:16px;font-weight:700;margin-bottom:6px}
 .demo-sub{font-size:13px;color:var(--text-muted)}
-.demo-badge{
-  display:inline-block;font-size:10px;font-family:'JetBrains Mono',monospace;
-  padding:3px 8px;border-radius:4px;background:rgba(6,214,160,0.1);
-  color:var(--accent3);border:1px solid rgba(6,214,160,0.2);margin-bottom:8px;
-  letter-spacing:0.1em;text-transform:uppercase;
-}
+.demo-badge{display:inline-block;font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:4px;background:rgba(6,214,160,0.1);color:var(--accent3);border:1px solid rgba(6,214,160,0.2);margin-bottom:8px;letter-spacing:0.1em;text-transform:uppercase}
+@media(max-width:768px){nav{padding:14px 20px}section{padding:80px 20px}.hero-h1{font-size:42px}.case-grid,.services-grid,.process-grid,.blog-grid,.testimonials-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}.roi-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.nav-links{display:none}.hero-stats{gap:24px}.trusted-inner{flex-direction:column;gap:16px}}
 </style>
 </head>
 <body>
 <div class="grid-bg"></div>
-
-<!-- NAV -->
 <nav>
-  <div class="nav-logo"><span style="color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.02em;">data</span><span style="background:linear-gradient(135deg,#5b6af0,#06d6a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:0.02em;">colab</span></div>
+  <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px"><span style="color:#fff">data</span><span style="background:linear-gradient(135deg,#5b6af0,#06d6a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">colab</span></div>
   <ul class="nav-links">
     <li><a href="/en/cases"><span class="az">Keyslərimiz</span><span class="ru">Кейсы</span><span class="en">Case Studies</span></a></li>
-    <li><a href="#services"><span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span></a></li>
-    <li><a href="#process"><span class="az">Proses</span><span class="ru">Процесс</span><span class="en">Process</span></a></li>
+    <li><a href="/#services"><span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span></a></li>
+    <li><a href="/#process"><span class="az">Proses</span><span class="ru">Процесс</span><span class="en">Process</span></a></li>
     <li><a href="/en/roi"><span class="az">ROI Hesablayıcı</span><span class="ru">Калькулятор</span><span class="en">ROI Calculator</span></a></li>
     <li><a href="/en/blog"><span class="az">Blog</span><span class="ru">Блог</span><span class="en">Blog</span></a></li>
   </ul>
@@ -515,237 +179,92 @@ footer{
       <button class="lang-btn" onclick="setLang('ru')">RU</button>
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
     </div>
-    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">◑</button>
-    <button class="cta-nav" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-      <span class="az">Layihə başlat</span><span class="ru">Начать проект</span><span class="en">Start a Project</span>
-    </button>
+    <button class="theme-btn" onclick="toggleTheme()">◑</button>
+    <button class="cta-nav" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><span class="az">Layihə başlat</span><span class="ru">Начать проект</span><span class="en">Start a Project</span></button>
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      <span class="badge-text">
-        <span class="az">Hazırda 2 aktiv layihə üzərində işləyirik</span>
-        <span class="ru">Сейчас работаем над 2 активными проектами</span>
-        <span class="en">Currently building 2 active projects</span>
-      </span>
+      <span class="badge-text"><span class="az">Hazırda <span id="active-count">2</span> aktiv layihə üzərində işləyirik</span><span class="ru">Сейчас работаем над <span id="active-count-ru">2</span> активными проектами</span><span class="en">Currently building <span id="active-count-en">2</span> active projects</span></span>
     </div>
-
     <h1 class="hero-h1">
       <span class="az">Biz sistemlər<br><span class="line2">qururuq,</span><br>saytlar yox</span>
       <span class="ru">Мы строим<br><span class="line2">системы,</span><br>не сайты</span>
       <span class="en">We build<br><span class="line2">systems,</span><br>not just websites</span>
     </h1>
-
-    <p class="hero-sub">
-      <span class="az">İdeadan produksiyaya: SaaS, platformalar, avtomatlaşdırma, analitika. Biz freelancer deyilik, agency deyilik — biz sistem qurucularıq.</span>
-      <span class="ru">От идеи до продакшна: SaaS, платформы, автоматизация, аналитика. Мы не фрилансеры и не агентство — мы строители систем.</span>
-      <span class="en">From idea to production: SaaS, platforms, automation, analytics. We're not freelancers, not an agency — we're system builders.</span>
+    <p class="hero-sub" id="hero-sub">
+      <span class="az">İdeadan sistemə qədər. SaaS, platformalar, avtomatlaşdırma. Biz sayt yox, biznesin işləyən tərəfini qururuq.</span>
+      <span class="ru">От идеи до системы. SaaS, платформы, автоматизация. Мы строим не сайты, а работающую часть бизнеса.</span>
+      <span class="en">From idea to system. SaaS, platforms, automation. We build the working side of your business.</span>
     </p>
-
     <div class="hero-ctas">
-      <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-        <span>
-          <span class="az">Layihə başlat</span>
-          <span class="ru">Начать проект</span>
-          <span class="en">Start a Project</span>
-        </span> →
-      </button>
-      <button class="btn-secondary" onclick="document.querySelector('#cases').scrollIntoView({behavior:'smooth'})">
-        <span class="az">Keyslərimizə bax</span>
-        <span class="ru">Смотреть кейсы</span>
-        <span class="en">View Case Studies</span>
-      </button>
+      <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><span><span class="az">Layihə başlat</span><span class="ru">Начать проект</span><span class="en">Start a Project</span></span> →</button>
+      <a href="/en/cases" class="btn-secondary"><span class="az">Keyslərimizə bax</span><span class="ru">Смотреть кейсы</span><span class="en">View Case Studies</span></a>
     </div>
-
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">12+</div>
-        <div class="stat-label">
-          <span class="az">Tamamlanan Sistem</span>
-          <span class="ru">Завершённых систем</span>
-          <span class="en">Systems Built</span>
-        </div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3x</div>
-        <div class="stat-label">
-          <span class="az">Ortalama Effektivlik</span>
-          <span class="ru">Рост эффективности</span>
-          <span class="en">Avg. Efficiency Gain</span>
-        </div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">
-          <span class="az">Müştəri Məmnuniyyəti</span>
-          <span class="ru">Удовлетворённость</span>
-          <span class="en">Client Satisfaction</span>
-        </div>
-      </div>
+      <div class="stat"><div class="stat-num" id="stat-systems">12+</div><div class="stat-label"><span class="az">Tamamlanan Sistem</span><span class="ru">Завершённых систем</span><span class="en">Systems Built</span></div></div>
+      <div class="stat"><div class="stat-num">3x</div><div class="stat-label"><span class="az">Ortalama Effektivlik</span><span class="ru">Рост эффективности</span><span class="en">Avg. Efficiency Gain</span></div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label"><span class="az">Müştəri Məmnuniyyəti</span><span class="ru">Удовлетворённость</span><span class="en">Client Satisfaction</span></div></div>
     </div>
   </div>
 </section>
 
 <div class="trusted-bar">
   <div class="trusted-inner">
-    <span class="trusted-label">
-      <span class="az">Etibar edir</span>
-      <span class="ru">Доверяют</span>
-      <span class="en">Trusted by</span>
-    </span>
+    <span class="trusted-label"><span class="az">Etibar edir</span><span class="ru">Доверяют</span><span class="en">Trusted by</span></span>
     <div class="trusted-logos">
-      <span class="logo-item"><img src="/logo-mentorix.png" alt="Mentorix" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1);"></span>
-<span class="logo-item"><img src="/logo-medpanel.png" alt="MedPanel" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1);"></span>
-      <span class="logo-item">EDUTECH AZ</span>
-      <span class="logo-item">CLINICPRO</span>
-      <span class="logo-item">STARTUPBAKU</span>
+      <span class="logo-item"><img src="/logo-mentorix.png" alt="Mentorix" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1)"></span>
+      <span class="logo-item"><img src="/logo-medpanel.png" alt="MedPanel" style="height:20px;width:auto;opacity:0.6;filter:grayscale(1)"></span>
+      <span class="logo-item">EDUTECH AZ</span><span class="logo-item">CLINICPRO</span><span class="logo-item">STARTUPBAKU</span>
     </div>
   </div>
 </div>
 
-<!-- CASE STUDIES -->
 <section id="cases">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Həqiqi Nəticələr</span>
-      <span class="ru">Реальные результаты</span>
-      <span class="en">Real Results</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Qurduğumuz sistemlər</span>
-      <span class="ru">Системы, которые мы построили</span>
-      <span class="en">Systems we've built</span>
-    </h2>
-    <p class="section-sub fade-in">
-      <span class="az">Hər layihə həqiqi problemin həlli üçün qurulmuş real sistemdir. Demo yox, produksiya.</span>
-      <span class="ru">Каждый проект — реальная система, решающая реальную проблему. Не демо, а продакшн.</span>
-      <span class="en">Every project is a real system built to solve a real problem. Not a demo — production.</span>
-    </p>
-
+    <span class="section-label"><span class="az">Həqiqi Nəticələr</span><span class="ru">Реальные результаты</span><span class="en">Real Results</span></span>
+    <h2 class="section-title fade-in"><span class="az">Qurduğumuz sistemlər</span><span class="ru">Системы, которые мы построили</span><span class="en">Systems we've built</span></h2>
+    <p class="section-sub fade-in"><span class="az">Hər layihə həqiqi problemin həlli üçün qurulmuş real sistemdir.</span><span class="ru">Каждый проект — реальная система, решающая реальную проблему.</span><span class="en">Every project is a real system built to solve a real problem.</span></p>
     <div class="case-grid">
-      <!-- Mentorix -->
       <div class="case-card fade-in">
         <div class="case-number">01</div>
-        <span class="case-tag tag-edu">
-          <span class="az">Təhsil Platforması</span>
-          <span class="ru">Образовательная платформа</span>
-          <span class="en">Education Platform</span>
-        </span>
-        <img src="/logo-mentorix.png" alt="Mentorix" style="height:28px;width:auto;margin-bottom:8px;display:block;">
-<h3 class="case-title">Mentorix</h3>
-        <p class="case-desc">
-          <span class="az">Tam funksiyalı mentorluq və tədris idarəetmə sistemi</span>
-          <span class="ru">Полнофункциональная система управления наставничеством</span>
-          <span class="en">Full-featured mentoring & learning management system</span>
-        </p>
+        <span class="case-tag tag-edu"><span class="az">Təhsil Platforması</span><span class="ru">Образовательная платформа</span><span class="en">Education Platform</span></span>
+        <img src="/logo-mentorix.png" alt="Mentorix" style="height:28px;width:auto;margin-bottom:8px;display:block">
+        <h3 class="case-title">Mentorix</h3>
+        <p class="case-desc"><span class="az">Tam funksiyalı mentorluq və tədris idarəetmə sistemi</span><span class="ru">Полнофункциональная система управления наставничеством</span><span class="en">Full-featured mentoring & learning management system</span></p>
         <div class="case-features">
-          <span class="feat-tag">
-            <span class="az">Tələbə izləmə</span><span class="ru">Трекинг студентов</span><span class="en">Student tracking</span>
-          </span>
-          <span class="feat-tag">
-            <span class="az">Ödəniş avtomatlaşması</span><span class="ru">Авто-платежи</span><span class="en">Payment automation</span>
-          </span>
-          <span class="feat-tag">
-            <span class="az">SMS xatırlatmalar</span><span class="ru">SMS-уведомления</span><span class="en">SMS reminders</span>
-          </span>
+          <span class="feat-tag"><span class="az">Tələbə izləmə</span><span class="ru">Трекинг студентов</span><span class="en">Student tracking</span></span>
+          <span class="feat-tag"><span class="az">Ödəniş avtomatlaşması</span><span class="ru">Авто-платежи</span><span class="en">Payment automation</span></span>
+          <span class="feat-tag"><span class="az">SMS xatırlatmalar</span><span class="ru">SMS-уведомления</span><span class="en">SMS reminders</span></span>
         </div>
         <div class="case-sections">
-          <div class="case-section">
-            <div class="case-section-label">
-              <span class="az">Problem</span><span class="ru">Проблема</span><span class="en">Problem</span>
-            </div>
-            <div class="case-section-text">
-              <span class="az">Manual tələbə qeydi, ödəniş itkiləri, sınaq buraxmaları — tam xaos.</span>
-              <span class="ru">Ручной учёт студентов, пропущенные платежи, пропуски занятий — полный хаос.</span>
-              <span class="en">Manual student records, missed payments, attendance gaps — complete operational chaos.</span>
-            </div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-label">
-              <span class="az">Həll</span><span class="ru">Решение</span><span class="en">Solution</span>
-            </div>
-            <div class="case-section-text">
-              <span class="az">Tələbə ömür dövrünü tam idarə edən platform: qeydiyyat, ödəniş, SMS, analitika.</span>
-              <span class="ru">Платформа управляет полным циклом: регистрация, оплата, SMS, аналитика.</span>
-              <span class="en">Platform managing the full student lifecycle: registration, payments, SMS alerts, analytics.</span>
-            </div>
-          </div>
+          <div class="case-section"><div class="case-section-label"><span class="az">Problem</span><span class="ru">Проблема</span><span class="en">Problem</span></div><div class="case-section-text"><span class="az">Manual tələbə qeydi, ödəniş itkiləri — tam xaos.</span><span class="ru">Ручной учёт студентов, пропущенные платежи — полный хаос.</span><span class="en">Manual student records, missed payments — complete chaos.</span></div></div>
+          <div class="case-section"><div class="case-section-label"><span class="az">Həll</span><span class="ru">Решение</span><span class="en">Solution</span></div><div class="case-section-text"><span class="az">Tələbə ömür dövrünü tam idarə edən platform.</span><span class="ru">Платформа управляет полным циклом студента.</span><span class="en">Platform managing the full student lifecycle.</span></div></div>
         </div>
-        <div class="case-result">
-          <div class="result-label">
-            <span class="az">Nəticə</span><span class="ru">Результат</span><span class="en">Result</span>
-          </div>
-          <div class="result-text">
-            <span class="az">Həqiqi istifadə sistemindən çıxan +40% ödəniş toplanması. 0 manual giriş.</span>
-            <span class="ru">+40% собираемость платежей. 0 ручных записей.</span>
-            <span class="en">+40% payment collection. Zero manual data entry. Live production system.</span>
-          </div>
-        </div>
+        <div class="case-result"><div class="result-label"><span class="az">Nəticə</span><span class="ru">Результат</span><span class="en">Result</span></div><div class="result-text"><span class="az">+40% ödəniş toplanması. 0 manual giriş.</span><span class="ru">+40% собираемость платежей. 0 ручных записей.</span><span class="en">+40% payment collection. Zero manual data entry.</span></div></div>
+        <a href="https://mentorix.io" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:10px 20px;background:var(--accent3);color:#000;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif">Canlı bax →</a>
       </div>
-
-      <!-- Medpanel -->
       <div class="case-card fade-in">
         <div class="case-number">02</div>
-        <span class="case-tag tag-med">
-          <span class="az">Klinik Sistem</span>
-          <span class="ru">Медицинская система</span>
-          <span class="en">Medical System</span>
-        </span>
-        <img src="/logo-medpanel.png" alt="MedPanel" style="height:36px;width:auto;margin-bottom:8px;display:block;">
-<h3 class="case-title">Medpanel</h3>
-        <p class="case-desc">
-          <span class="az">Klinika üçün tam idarəetmə və analitika platforması</span>
-          <span class="ru">Полная система управления клиникой с аналитикой</span>
-          <span class="en">Complete clinic management and analytics platform</span>
-        </p>
+        <span class="case-tag tag-med"><span class="az">Klinik Sistem</span><span class="ru">Медицинская система</span><span class="en">Medical System</span></span>
+        <img src="/logo-medpanel.png" alt="MedPanel" style="height:36px;width:auto;margin-bottom:8px;display:block">
+        <h3 class="case-title">Medpanel</h3>
+        <p class="case-desc"><span class="az">Klinika üçün tam idarəetmə və analitika platforması</span><span class="ru">Полная система управления клиникой с аналитикой</span><span class="en">Complete clinic management and analytics platform</span></p>
         <div class="case-features">
-          <span class="feat-tag">
-            <span class="az">Xəstə idarəetmə</span><span class="ru">Управление пациентами</span><span class="en">Patient management</span>
-          </span>
-          <span class="feat-tag">
-            <span class="az">Görüş sistemi</span><span class="ru">Запись на приём</span><span class="en">Appointment system</span>
-          </span>
-          <span class="feat-tag">
-            <span class="az">Analitika</span><span class="ru">Аналитика</span><span class="en">Analytics</span>
-          </span>
+          <span class="feat-tag"><span class="az">Xəstə idarəetmə</span><span class="ru">Управление пациентами</span><span class="en">Patient management</span></span>
+          <span class="feat-tag"><span class="az">Görüş sistemi</span><span class="ru">Запись на приём</span><span class="en">Appointment system</span></span>
+          <span class="feat-tag"><span class="az">Analitika</span><span class="ru">Аналитика</span><span class="en">Analytics</span></span>
         </div>
         <div class="case-sections">
-          <div class="case-section">
-            <div class="case-section-label">
-              <span class="az">Problem</span><span class="ru">Проблема</span><span class="en">Problem</span>
-            </div>
-            <div class="case-section-text">
-              <span class="az">Kağız kartlar, itirilən görüşlər, heç bir analitika — tibb müəssisəsi körü-körünə işləyirdi.</span>
-              <span class="ru">Бумажные карты, потерянные записи, нулевая аналитика — клиника работала вслепую.</span>
-              <span class="en">Paper records, lost appointments, zero analytics — the clinic was operating blind.</span>
-            </div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-label">
-              <span class="az">Həll</span><span class="ru">Решение</span><span class="en">Solution</span>
-            </div>
-            <div class="case-section-text">
-              <span class="az">Real vaxtlı görüş idarəetmə, xəstə tarixi, həkim performans tabloları.</span>
-              <span class="ru">Управление записями в реальном времени, история пациентов, дашборды врачей.</span>
-              <span class="en">Real-time appointment management, patient history, doctor performance dashboards.</span>
-            </div>
-          </div>
+          <div class="case-section"><div class="case-section-label"><span class="az">Problem</span><span class="ru">Проблема</span><span class="en">Problem</span></div><div class="case-section-text"><span class="az">Kağız kartlar, itirilən görüşlər — körü-körünə idarəetmə.</span><span class="ru">Бумажные карты, потерянные записи — работа вслепую.</span><span class="en">Paper records, lost appointments — operating blind.</span></div></div>
+          <div class="case-section"><div class="case-section-label"><span class="az">Həll</span><span class="ru">Решение</span><span class="en">Solution</span></div><div class="case-section-text"><span class="az">Real vaxtlı görüş idarəetmə, xəstə tarixi, həkim tabloları.</span><span class="ru">Управление записями в реальном времени, история пациентов.</span><span class="en">Real-time appointment management, patient history, doctor dashboards.</span></div></div>
         </div>
-        <div class="case-result">
-          <div class="result-label">
-            <span class="az">Nəticə</span><span class="ru">Результат</span><span class="en">Result</span>
-          </div>
-          <div class="result-text">
-            <span class="az">Gündəlik 200+ görüşü idarə edir. Xəstə məmnuniyyəti 2x artdı.</span>
-            <span class="ru">Обрабатывает 200+ записей в день. Удовлетворённость пациентов выросла в 2 раза.</span>
-            <span class="en">Handles 200+ appointments daily. Patient satisfaction doubled. Fully paperless.</span>
-          </div>
-        </div>
+        <div class="case-result"><div class="result-label"><span class="az">Nəticə</span><span class="ru">Результат</span><span class="en">Result</span></div><div class="result-text"><span class="az">Gündəlik 200+ görüşü idarə edir. Məmnuniyyət 2x artdı.</span><span class="ru">200+ записей в день. Удовлетворённость выросла в 2 раза.</span><span class="en">Handles 200+ appointments daily. Patient satisfaction doubled.</span></div></div>
+        <a href="https://www.medpanel.co" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif">Canlı bax →</a>
       </div>
     </div>
   </div>
@@ -753,58 +272,27 @@ footer{
 
 <div class="section-divider"></div>
 
-<!-- DEMO SCREENS -->
 <section id="demo" style="padding:80px 40px">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Həqiqi Sistemlər</span>
-      <span class="ru">Реальные системы</span>
-      <span class="en">Real Systems</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Gördüyünüz budur</span>
-      <span class="ru">Вот что вы получаете</span>
-      <span class="en">This is what you get</span>
-    </h2>
-
+    <span class="section-label"><span class="az">Həqiqi Sistemlər</span><span class="ru">Реальные системы</span><span class="en">Real Systems</span></span>
+    <h2 class="section-title fade-in"><span class="az">Gördüyünüz budur</span><span class="ru">Вот что вы получаете</span><span class="en">This is what you get</span></h2>
     <div class="demo-grid">
       <div class="demo-card fade-in">
-        <div class="demo-screen" style="padding:0;overflow:hidden;">
-  <img src="/mentorix-dashboard.jpeg" alt="Mentorix Dashboard" style="width:100%;height:100%;object-fit:cover;display:block;">
-</div>
+        <div style="overflow:hidden"><img src="/mentorix-dashboard.jpeg" alt="Mentorix Dashboard" style="width:100%;height:200px;object-fit:cover;display:block"></div>
         <div class="demo-info">
           <div class="demo-badge">MENTORIX</div>
-          <div class="demo-title">
-            <span class="az">Tələbə İdarəetmə Paneli</span>
-            <span class="ru">Панель управления студентами</span>
-            <span class="en">Student Management Dashboard</span>
-          </div>
-          <div class="demo-sub">
-            <span class="az">Real vaxtlı ödəniş izləmə, tələbə statusu, avtomatik SMS</span>
-            <span class="ru">Отслеживание платежей в реальном времени, статус студентов</span>
-            <span class="en">Real-time payment tracking, student status, automated SMS alerts</span>
-            <a href="https://mentorix.io" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:var(--accent3);color:#fff;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif;">Canlı bax →</a>
-          </div> 
+          <div class="demo-title"><span class="az">Tələbə İdarəetmə Paneli</span><span class="ru">Панель управления студентами</span><span class="en">Student Management Dashboard</span></div>
+          <div class="demo-sub"><span class="az">Real vaxtlı ödəniş izləmə, tələbə statusu, avtomatik SMS</span><span class="ru">Отслеживание платежей в реальном времени</span><span class="en">Real-time payment tracking, student status, SMS alerts</span></div>
+          <a href="https://mentorix.io" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:var(--accent3);color:#000;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif">Canlı bax →</a>
         </div>
       </div>
-
       <div class="demo-card fade-in">
-       <div class="demo-screen" style="padding:0;overflow:hidden;">
-  <img src="/medpanel-dashboard.jpeg" alt="Medpanel Dashboard" style="width:100%;height:100%;object-fit:cover;display:block;">
-</div>
+        <div style="overflow:hidden"><img src="/medpanel-dashboard.jpeg" alt="Medpanel Dashboard" style="width:100%;height:200px;object-fit:cover;display:block"></div>
         <div class="demo-info">
           <div class="demo-badge" style="background:rgba(91,106,240,0.1);color:var(--accent);border-color:rgba(91,106,240,0.2)">MEDPANEL</div>
-          <div class="demo-title">
-            <span class="az">Klinika İdarəetmə Sistemi</span>
-            <span class="ru">Система управления клиникой</span>
-            <span class="en">Clinic Management System</span>
-          </div>
-          <div class="demo-sub">
-            <span class="az">Görüş planlaması, həkim cədvəli, xəstə tarixi</span>
-            <span class="ru">Планирование записей, расписание врачей, история пациентов</span>
-            <span class="en">Appointment scheduling, doctor roster, patient history tracking</span>
-          </div>
-        <a href="https://www.medpanel.co" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif;">Canlı bax →</a>
+          <div class="demo-title"><span class="az">Klinika İdarəetmə Sistemi</span><span class="ru">Система управления клиникой</span><span class="en">Clinic Management System</span></div>
+          <div class="demo-sub"><span class="az">Görüş planlaması, həkim cədvəli, xəstə tarixi</span><span class="ru">Планирование записей, расписание врачей</span><span class="en">Appointment scheduling, doctor roster, patient history</span></div>
+          <a href="https://www.medpanel.co" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:var(--accent);color:#fff;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;font-family:'Syne',sans-serif">Canlı bax →</a>
         </div>
       </div>
     </div>
@@ -813,290 +301,60 @@ footer{
 
 <div class="section-divider"></div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Nə qururuq</span>
-      <span class="ru">Что мы строим</span>
-      <span class="en">What we build</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Nəticə üzrə xidmətlər</span>
-      <span class="ru">Услуги по результату</span>
-      <span class="en">Services by outcome</span>
-    </h2>
-    <p class="section-sub fade-in">
-      <span class="az">Generic texnologiya siyahısı deyil. Hər qrup real biznes nəticəsinə yönəlib.</span>
-      <span class="ru">Не список технологий. Каждая группа направлена на реальный бизнес-результат.</span>
-      <span class="en">Not a technology list. Every group is oriented toward a real business outcome.</span>
-    </p>
-
+    <span class="section-label"><span class="az">Nə qururuq</span><span class="ru">Что мы строим</span><span class="en">What we build</span></span>
+    <h2 class="section-title fade-in"><span class="az">Nəticə üzrə xidmətlər</span><span class="ru">Услуги по результату</span><span class="en">Services by outcome</span></h2>
+    <p class="section-sub fade-in"><span class="az">Generic texnologiya siyahısı deyil. Hər qrup real biznes nəticəsinə yönəlib.</span><span class="ru">Не список технологий. Каждая группа направлена на реальный бизнес-результат.</span><span class="en">Not a technology list. Every group is oriented toward a real business outcome.</span></p>
     <div class="services-grid">
-      <div class="service-card fade-in">
-        <div class="service-icon icon-build">🚀</div>
-        <div class="service-outcome">
-          <span class="az">QUR</span><span class="ru">СОЗДАТЬ</span><span class="en">BUILD</span>
-        </div>
-        <h3 class="service-title">
-          <span class="az">Məhsul & Platforma</span>
-          <span class="ru">Продукт & Платформа</span>
-          <span class="en">Product & Platform</span>
-        </h3>
-        <ul class="service-items">
-          <li><span class="az">SaaS inkişafı</span><span class="ru">Разработка SaaS</span><span class="en">SaaS development</span></li>
-          <li><span class="az">Veb tətbiqlər</span><span class="ru">Веб-приложения</span><span class="en">Web applications</span></li>
-          <li><span class="az">Platformalar & marketpleyslər</span><span class="ru">Платформы и маркетплейсы</span><span class="en">Platforms & marketplaces</span></li>
-          <li><span class="az">İstifadəçi portalları</span><span class="ru">Пользовательские порталы</span><span class="en">User portals & dashboards</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon icon-auto">⚙️</div>
-        <div class="service-outcome">
-          <span class="az">AVTOMATLAŞDIRin</span><span class="ru">АВТОМАТИЗАЦИЯ</span><span class="en">AUTOMATE</span>
-        </div>
-        <h3 class="service-title">
-          <span class="az">Biznes Avtomatlaşması</span>
-          <span class="ru">Бизнес-автоматизация</span>
-          <span class="en">Business Automation</span>
-        </h3>
-        <ul class="service-items">
-          <li><span class="az">Biznes prosesi avtomatlaşması</span><span class="ru">Автоматизация процессов</span><span class="en">Business process automation</span></li>
-          <li><span class="az">CRM sistemləri</span><span class="ru">CRM-системы</span><span class="en">CRM systems</span></li>
-          <li><span class="az">Ödəniş & bildiriş sistemləri</span><span class="ru">Системы платежей и уведомлений</span><span class="en">Payment & notification systems</span></li>
-          <li><span class="az">İş axını inteqrasiyaları</span><span class="ru">Интеграции рабочих процессов</span><span class="en">Workflow integrations</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon icon-analyze">📊</div>
-        <div class="service-outcome">
-          <span class="az">ANALİZ ET</span><span class="ru">АНАЛИЗИРОВАТЬ</span><span class="en">ANALYZE</span>
-        </div>
-        <h3 class="service-title">
-          <span class="az">Data & Analitika</span>
-          <span class="ru">Данные & Аналитика</span>
-          <span class="en">Data & Analytics</span>
-        </h3>
-        <ul class="service-items">
-          <li><span class="az">Data tabloları</span><span class="ru">Дашборды данных</span><span class="en">Data dashboards</span></li>
-          <li><span class="az">Analitika sistemləri</span><span class="ru">Аналитические системы</span><span class="en">Analytics systems</span></li>
-          <li><span class="az">Hesabat alətləri</span><span class="ru">Инструменты отчётности</span><span class="en">Reporting tools</span></li>
-          <li><span class="az">KPI izləmə</span><span class="ru">Отслеживание KPI</span><span class="en">KPI monitoring</span></li>
-        </ul>
-      </div>
-
-      <div class="service-card fade-in">
-        <div class="service-icon icon-grow">🎯</div>
-        <div class="service-outcome">
-          <span class="az">BÖYÜT</span><span class="ru">РАСТИ</span><span class="en">GROW</span>
-        </div>
-        <h3 class="service-title">
-          <span class="az">Böyümə & Optimizasiya</span>
-          <span class="ru">Рост & Оптимизация</span>
-          <span class="en">Growth & Optimization</span>
-        </h3>
-        <ul class="service-items">
-          <li><span class="az">SEO & axtarış görünürlüyü</span><span class="ru">SEO и видимость в поиске</span><span class="en">SEO & search visibility</span></li>
-          <li><span class="az">Performans optimizasiyası</span><span class="ru">Оптимизация производительности</span><span class="en">Performance optimization</span></li>
-          <li><span class="az">Texniki konsultasiya</span><span class="ru">Техническое консалтинг</span><span class="en">Technical consulting</span></li>
-          <li><span class="az">Sistem auditi</span><span class="ru">Аудит системы</span><span class="en">System audit</span></li>
-        </ul>
-      </div>
+      <div class="service-card fade-in"><div class="service-icon icon-build">🚀</div><div class="service-outcome"><span class="az">QUR</span><span class="ru">СОЗДАТЬ</span><span class="en">BUILD</span></div><h3 class="service-title"><span class="az">Məhsul & Platforma</span><span class="ru">Продукт & Платформа</span><span class="en">Product & Platform</span></h3><ul class="service-items"><li><span class="az">SaaS inkişafı</span><span class="ru">Разработка SaaS</span><span class="en">SaaS development</span></li><li><span class="az">Veb tətbiqlər</span><span class="ru">Веб-приложения</span><span class="en">Web applications</span></li><li><span class="az">Platformalar & marketpleyslər</span><span class="ru">Платформы и маркетплейсы</span><span class="en">Platforms & marketplaces</span></li><li><span class="az">İstifadəçi portalları</span><span class="ru">Пользовательские порталы</span><span class="en">User portals & dashboards</span></li></ul></div>
+      <div class="service-card fade-in"><div class="service-icon icon-auto">⚙️</div><div class="service-outcome"><span class="az">AVTOMATLAŞDIRin</span><span class="ru">АВТОМАТИЗАЦИЯ</span><span class="en">AUTOMATE</span></div><h3 class="service-title"><span class="az">Biznes Avtomatlaşması</span><span class="ru">Бизнес-автоматизация</span><span class="en">Business Automation</span></h3><ul class="service-items"><li><span class="az">Biznes prosesi avtomatlaşması</span><span class="ru">Автоматизация процессов</span><span class="en">Business process automation</span></li><li><span class="az">CRM sistemləri</span><span class="ru">CRM-системы</span><span class="en">CRM systems</span></li><li><span class="az">Ödəniş & bildiriş sistemləri</span><span class="ru">Системы платежей</span><span class="en">Payment & notification systems</span></li><li><span class="az">İş axını inteqrasiyaları</span><span class="ru">Интеграции</span><span class="en">Workflow integrations</span></li></ul></div>
+      <div class="service-card fade-in"><div class="service-icon icon-analyze">📊</div><div class="service-outcome"><span class="az">ANALİZ ET</span><span class="ru">АНАЛИЗИРОВАТЬ</span><span class="en">ANALYZE</span></div><h3 class="service-title"><span class="az">Data & Analitika</span><span class="ru">Данные & Аналитика</span><span class="en">Data & Analytics</span></h3><ul class="service-items"><li><span class="az">Data tabloları</span><span class="ru">Дашборды данных</span><span class="en">Data dashboards</span></li><li><span class="az">Analitika sistemləri</span><span class="ru">Аналитические системы</span><span class="en">Analytics systems</span></li><li><span class="az">Hesabat alətləri</span><span class="ru">Инструменты отчётности</span><span class="en">Reporting tools</span></li><li><span class="az">KPI izləmə</span><span class="ru">Отслеживание KPI</span><span class="en">KPI monitoring</span></li></ul></div>
+      <div class="service-card fade-in"><div class="service-icon icon-grow">🎯</div><div class="service-outcome"><span class="az">BÖYÜT</span><span class="ru">РАСТИ</span><span class="en">GROW</span></div><h3 class="service-title"><span class="az">Böyümə & Optimizasiya</span><span class="ru">Рост & Оптимизация</span><span class="en">Growth & Optimization</span></h3><ul class="service-items"><li><span class="az">SEO & axtarış görünürlüyü</span><span class="ru">SEO и видимость в поиске</span><span class="en">SEO & search visibility</span></li><li><span class="az">Performans optimizasiyası</span><span class="ru">Оптимизация производительности</span><span class="en">Performance optimization</span></li><li><span class="az">Texniki konsultasiya</span><span class="ru">Техническое консалтинг</span><span class="en">Technical consulting</span></li><li><span class="az">Sistem auditi</span><span class="ru">Аудит системы</span><span class="en">System audit</span></li></ul></div>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- PROCESS -->
 <section id="process">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Necə qururuq</span>
-      <span class="ru">Как мы строим</span>
-      <span class="en">How we build</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Prosesin hər addımı şəffafdır</span>
-      <span class="ru">Каждый шаг прозрачен</span>
-      <span class="en">Every step of the process is transparent</span>
-    </h2>
-
+    <span class="section-label"><span class="az">Necə qururuq</span><span class="ru">Как мы строим</span><span class="en">How we build</span></span>
+    <h2 class="section-title fade-in"><span class="az">Prosesin hər addımı şəffafdır</span><span class="ru">Каждый шаг прозрачен</span><span class="en">Every step of the process is transparent</span></h2>
     <div class="process-grid">
-      <div class="process-card fade-in">
-        <div class="process-num">01</div>
-        <h3 class="process-title">
-          <span class="az">Problem Analizi</span>
-          <span class="ru">Анализ проблемы</span>
-          <span class="en">Problem Analysis</span>
-        </h3>
-        <p class="process-desc">
-          <span class="az">Sizi dinləyirik. Nəyin sınıq olduğunu başa düşürük. Texnologiyadan əvvəl biznes prosesini anlayırıq.</span>
-          <span class="ru">Слушаем вас. Понимаем, что сломано. Разбираемся в бизнес-процессе до технологий.</span>
-          <span class="en">We listen. We understand what's broken. We learn the business before we touch a keyboard.</span>
-        </p>
-      </div>
-      <div class="process-card fade-in">
-        <div class="process-num">02</div>
-        <h3 class="process-title">
-          <span class="az">Sistem Dizaynı</span>
-          <span class="ru">Системное проектирование</span>
-          <span class="en">System Design</span>
-        </h3>
-        <p class="process-desc">
-          <span class="az">Arxitektura, verilənlər axını, istifadəçi yolculuğu — hər şey inkişafdan əvvəl sənədləşdirilir.</span>
-          <span class="ru">Архитектура, потоки данных, пути пользователя — всё задокументировано до разработки.</span>
-          <span class="en">Architecture, data flows, user journeys — all documented before development begins.</span>
-        </p>
-      </div>
-      <div class="process-card fade-in">
-        <div class="process-num">03</div>
-        <h3 class="process-title">
-          <span class="az">MVP & Test</span>
-          <span class="ru">MVP и тестирование</span>
-          <span class="en">MVP & Testing</span>
-        </h3>
-        <p class="process-desc">
-          <span class="az">2-4 həftə ərzində real istifadəçilərlə test edilə bilən MVP. Tez rəy, tez dəyişiklik.</span>
-          <span class="ru">Тестируемый MVP с реальными пользователями за 2-4 недели. Быстрая обратная связь.</span>
-          <span class="en">Testable MVP with real users in 2-4 weeks. Fast feedback, fast iteration.</span>
-        </p>
-      </div>
-      <div class="process-card fade-in">
-        <div class="process-num">04</div>
-        <h3 class="process-title">
-          <span class="az">Ölçəklənmə</span>
-          <span class="ru">Масштабирование</span>
-          <span class="en">Scaling</span>
-        </h3>
-        <p class="process-desc">
-          <span class="az">Sistemi böyüyürsünüz, biz onla böyüyürük. Performans, etibarlılıq, yeni funksiyalar.</span>
-          <span class="ru">Вы растёте — мы растём вместе. Производительность, надёжность, новые функции.</span>
-          <span class="en">You grow, we grow with you. Performance, reliability, new features — on demand.</span>
-        </p>
-      </div>
+      <div class="process-card fade-in"><div class="process-num">01</div><h3 class="process-title"><span class="az">Problem Analizi</span><span class="ru">Анализ проблемы</span><span class="en">Problem Analysis</span></h3><p class="process-desc"><span class="az">Sizi dinləyirik. Texnologiyadan əvvəl biznes prosesini anlayırıq.</span><span class="ru">Слушаем вас. Разбираемся в бизнес-процессе до технологий.</span><span class="en">We listen. We learn the business before we touch a keyboard.</span></p></div>
+      <div class="process-card fade-in"><div class="process-num">02</div><h3 class="process-title"><span class="az">Sistem Dizaynı</span><span class="ru">Системное проектирование</span><span class="en">System Design</span></h3><p class="process-desc"><span class="az">Arxitektura, verilənlər axını — hər şey inkişafdan əvvəl sənədləşdirilir.</span><span class="ru">Архитектура, потоки данных — всё задокументировано до разработки.</span><span class="en">Architecture, data flows — all documented before development begins.</span></p></div>
+      <div class="process-card fade-in"><div class="process-num">03</div><h3 class="process-title"><span class="az">MVP & Test</span><span class="ru">MVP и тестирование</span><span class="en">MVP & Testing</span></h3><p class="process-desc"><span class="az">2-4 həftə ərzində real istifadəçilərlə test edilə bilən MVP.</span><span class="ru">Тестируемый MVP с реальными пользователями за 2-4 недели.</span><span class="en">Testable MVP with real users in 2-4 weeks.</span></p></div>
+      <div class="process-card fade-in"><div class="process-num">04</div><h3 class="process-title"><span class="az">Ölçəklənmə</span><span class="ru">Масштабирование</span><span class="en">Scaling</span></h3><p class="process-desc"><span class="az">Sistemi böyüyürsünüz, biz onla böyüyürük.</span><span class="ru">Вы растёте — мы растём вместе.</span><span class="en">You grow, we grow with you.</span></p></div>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- ROI CALCULATOR -->
 <section id="roi">
   <div class="container">
-    <span class="section-label">
-      <span class="az">ROI Hesablayıcı</span>
-      <span class="ru">Калькулятор ROI</span>
-      <span class="en">ROI Calculator</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Avtomatlaşdırma sizə nə qazandırır?</span>
-      <span class="ru">Что автоматизация даст вашему бизнесу?</span>
-      <span class="en">What will automation earn you?</span>
-    </h2>
-
+    <span class="section-label"><span class="az">ROI Hesablayıcı</span><span class="ru">Калькулятор ROI</span><span class="en">ROI Calculator</span></span>
+    <h2 class="section-title fade-in"><span class="az">Avtomatlaşdırma sizə nə qazandırır?</span><span class="ru">Что автоматизация даст вашему бизнесу?</span><span class="en">What will automation earn you?</span></h2>
     <div class="roi-card fade-in">
       <div class="roi-grid">
         <div class="roi-form">
-          <div class="roi-field">
-            <label>
-              <span class="az">Biznes növü</span>
-              <span class="ru">Тип бизнеса</span>
-              <span class="en">Business type</span>
-            </label>
-            <select id="biz-type" onchange="calcROI()">
-              <option value="edu">
-                <span class="az">Təhsil / Kurslar</span>
-                <span class="ru">Образование / Курсы</span>
-                <span class="en">Education / Courses</span>
-              </option>
-              <option value="clinic">
-                <span class="az">Klinika / Tibb</span>
-                <span class="ru">Клиника / Медицина</span>
-                <span class="en">Clinic / Healthcare</span>
-              </option>
-              <option value="retail">
-                <span class="az">Pərakəndə / E-ticarət</span>
-                <span class="ru">Ритейл / E-commerce</span>
-                <span class="en">Retail / E-commerce</span>
-              </option>
-              <option value="service">
-                <span class="az">Xidmət biznesi</span>
-                <span class="ru">Сервисный бизнес</span>
-                <span class="en">Service business</span>
-              </option>
-            </select>
-          </div>
-          <div class="roi-field">
-            <label>
-              <span class="az">Aylıq müştəri sayı: <strong id="cust-label">100</strong></span>
-              <span class="ru">Клиентов в месяц: <strong id="cust-label2">100</strong></span>
-              <span class="en">Monthly clients: <strong id="cust-label3">100</strong></span>
-            </label>
-            <input type="range" class="roi-slider" id="cust-count" min="10" max="1000" value="100" step="10" oninput="updateLabel(this.value);calcROI()">
-          </div>
-          <div class="roi-field">
-            <label>
-              <span class="az">Manual iş saatı / həftə: <strong id="hours-label">20</strong></span>
-              <span class="ru">Ручной труд в неделю: <strong id="hours-label2">20</strong> ч.</span>
-              <span class="en">Manual work hours / week: <strong id="hours-label3">20</strong></span>
-            </label>
-            <input type="range" class="roi-slider" id="manual-hours" min="1" max="80" value="20" oninput="updateHours(this.value);calcROI()">
-          </div>
-          <div class="roi-field">
-            <label>
-              <span class="az">Saatlıq əmək haqqı (₼)</span>
-              <span class="ru">Почасовая ставка (₼)</span>
-              <span class="en">Hourly labor cost (₼)</span>
-            </label>
-            <input type="number" id="hourly-rate" value="15" min="5" max="200" onchange="calcROI()" placeholder="₼15">
-          </div>
+          <div class="roi-field"><label><span class="az">Biznes növü</span><span class="ru">Тип бизнеса</span><span class="en">Business type</span></label><select id="biz-type" onchange="calcROI()"><option value="edu">Təhsil / Kurslar</option><option value="clinic">Klinika / Tibb</option><option value="retail">Pərakəndə / E-ticarət</option><option value="service">Xidmət biznesi</option></select></div>
+          <div class="roi-field"><label><span class="az">Aylıq müştəri sayı: <strong id="cust-label">100</strong></span><span class="ru">Клиентов в месяц: <strong id="cust-label2">100</strong></span><span class="en">Monthly clients: <strong id="cust-label3">100</strong></span></label><input type="range" class="roi-slider" id="cust-count" min="10" max="1000" value="100" step="10" oninput="updateLabel(this.value);calcROI()"></div>
+          <div class="roi-field"><label><span class="az">Manual iş saatı / həftə: <strong id="hours-label">20</strong></span><span class="ru">Ручной труд в неделю: <strong id="hours-label2">20</strong> ч.</span><span class="en">Manual work hours / week: <strong id="hours-label3">20</strong></span></label><input type="range" class="roi-slider" id="manual-hours" min="1" max="80" value="20" oninput="updateHours(this.value);calcROI()"></div>
+          <div class="roi-field"><label><span class="az">Saatlıq əmək haqqı (₼)</span><span class="ru">Почасовая ставка (₼)</span><span class="en">Hourly labor cost (₼)</span></label><input type="number" id="hourly-rate" value="15" min="5" max="200" onchange="calcROI()" placeholder="₼15"></div>
+          <a href="/en/roi" class="btn-secondary" style="justify-content:center;text-align:center"><span class="az">Ətraflı hesabla →</span><span class="ru">Подробный расчёт →</span><span class="en">Detailed calculator →</span></a>
         </div>
         <div class="roi-result">
-          <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em">
-            <span class="az">AYLIQ QƏNAƏT</span><span class="ru">ЭКОНОМИЯ В МЕСЯЦ</span><span class="en">MONTHLY SAVINGS</span>
-          </div>
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.1em"><span class="az">AYLIQ QƏNAƏT</span><span class="ru">ЭКОНОМИЯ В МЕСЯЦ</span><span class="en">MONTHLY SAVINGS</span></div>
           <div class="roi-number" id="roi-savings">₼2,400</div>
-          <div class="roi-label">
-            <span class="az">avtomatlaşdırma ilə</span>
-            <span class="ru">благодаря автоматизации</span>
-            <span class="en">with automation</span>
-          </div>
+          <div class="roi-label"><span class="az">avtomatlaşdırma ilə</span><span class="ru">благодаря автоматизации</span><span class="en">with automation</span></div>
           <div class="roi-breakdown">
-            <div class="roi-row">
-              <span>
-                <span class="az">Qənaət edilən saatlar/ay</span>
-                <span class="ru">Сэкономлено часов/мес</span>
-                <span class="en">Hours saved / month</span>
-              </span>
-              <span id="roi-hours">80h</span>
-            </div>
-            <div class="roi-row">
-              <span>
-                <span class="az">Xəta azalması</span>
-                <span class="ru">Сокращение ошибок</span>
-                <span class="en">Error reduction</span>
-              </span>
-              <span>~85%</span>
-            </div>
-            <div class="roi-row">
-              <span>
-                <span class="az">İllik qənaət</span>
-                <span class="ru">Годовая экономия</span>
-                <span class="en">Annual savings</span>
-              </span>
-              <span id="roi-annual">₼28,800</span>
-            </div>
+            <div class="roi-row"><span><span class="az">Qənaət edilən saatlar/ay</span><span class="ru">Сэкономлено часов/мес</span><span class="en">Hours saved / month</span></span><span id="roi-hours">80h</span></div>
+            <div class="roi-row"><span><span class="az">Xəta azalması</span><span class="ru">Сокращение ошибок</span><span class="en">Error reduction</span></span><span>~85%</span></div>
+            <div class="roi-row"><span><span class="az">İllik qənaət</span><span class="ru">Годовая экономия</span><span class="en">Annual savings</span></span><span id="roi-annual">₼28,800</span></div>
           </div>
-          <button class="btn-primary" style="width:100%;margin-top:20px;justify-content:center" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-            <span>
-              <span class="az">Hesablamama bax →</span>
-              <span class="ru">Получить расчёт →</span>
-              <span class="en">Get my estimate →</span>
-            </span>
-          </button>
+          <button class="btn-primary" style="width:100%;margin-top:20px;justify-content:center" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><span><span class="az">Layihəni müzakirə edək →</span><span class="ru">Обсудить проект →</span><span class="en">Let's discuss →</span></span></button>
         </div>
       </div>
     </div>
@@ -1105,403 +363,138 @@ footer{
 
 <div class="section-divider"></div>
 
-<!-- BLOG -->
 <section id="blog">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Biliklər</span>
-      <span class="ru">Знания</span>
-      <span class="en">Insights</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Düşüncələrimiz</span>
-      <span class="ru">Наши мысли</span>
-      <span class="en">Our thinking</span>
-    </h2>
-
+    <span class="section-label"><span class="az">Biliklər</span><span class="ru">Знания</span><span class="en">Insights</span></span>
+    <h2 class="section-title fade-in"><span class="az">Düşüncələrimiz</span><span class="ru">Наши мысли</span><span class="en">Our thinking</span></h2>
     <div class="blog-grid">
-      <div class="blog-card fade-in">
-        <span class="blog-tag">
-          <span class="az">SAAS</span><span class="ru">SAAS</span><span class="en">SAAS</span>
-        </span>
-        <h3 class="blog-title">
-          <span class="az">2026-da SaaS necə qurulur</span>
-          <span class="ru">Как строить SaaS в 2026</span>
-          <span class="en">How to build SaaS in 2026</span>
-        </h3>
-        <p class="blog-excerpt">
-          <span class="az">Çoxları SaaS qurmağın texnologiya haqqında olduğunu düşünür. Əslində bu, problemin dəqiqliyi haqqındadır.</span>
-          <span class="ru">Многие думают, что SaaS — это про технологии. На самом деле — про точность понимания проблемы.</span>
-          <span class="en">Most people think building SaaS is about technology. It's actually about precision of problem definition.</span>
-        </p>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
-          <span class="blog-meta">5 min read</span>
-          <span class="read-more">
-            <span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →
-          </span>
-        </div>
-      </div>
-
-      <div class="blog-card fade-in">
-        <span class="blog-tag">
-          <span class="az">UĞURSUZLUQ</span><span class="ru">НЕУДАЧИ</span><span class="en">FAILURE</span>
-        </span>
-        <h3 class="blog-title">
-          <span class="az">Niyə əksər tətbiqlər uğursuz olur</span>
-          <span class="ru">Почему большинство приложений проваливаются</span>
-          <span class="en">Why most apps fail</span>
-        </h3>
-        <p class="blog-excerpt">
-          <span class="az">Texniki borclar deyil. Yanlış problem həll edilir. Biz 8 real nümunəni araşdırdıq.</span>
-          <span class="ru">Не технический долг. Решается не та проблема. Мы разобрали 8 реальных случаев.</span>
-          <span class="en">It's not technical debt. It's solving the wrong problem. We analyzed 8 real cases.</span>
-        </p>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
-          <span class="blog-meta">8 min read</span>
-          <span class="read-more">
-            <span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →
-          </span>
-        </div>
-      </div>
-
-      <div class="blog-card fade-in">
-        <span class="blog-tag">
-          <span class="az">AVTOMATLAŞdirma</span><span class="ru">АВТОМАТИЗАЦИЯ</span><span class="en">AUTOMATION</span>
-        </span>
-        <h3 class="blog-title">
-          <span class="az">Hər kiçik biznes avtomatlaşdıra biləcəyi 5 proses</span>
-          <span class="ru">5 процессов, которые любой малый бизнес может автоматизировать</span>
-          <span class="en">5 processes every small business can automate now</span>
-        </h3>
-        <p class="blog-excerpt">
-          <span class="az">Ödənişlər, xatırlatmalar, hesabatlar, müştəri onboardingi, inventar. Bunların hamısı avtomatlaşdırıla bilər.</span>
-          <span class="ru">Платежи, напоминания, отчёты, онбординг, инвентарь — всё это автоматизируется.</span>
-          <span class="en">Payments, reminders, reports, customer onboarding, inventory. All automatable.</span>
-        </p>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px">
-          <span class="blog-meta">6 min read</span>
-          <span class="read-more">
-            <span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →
-          </span>
-        </div>
-      </div>
+      <a href="/en/blog/saas-2026" class="blog-card fade-in">
+        <span class="blog-tag"><span class="az">SAAS</span><span class="ru">SAAS</span><span class="en">SAAS</span></span>
+        <h3 class="blog-title"><span class="az">2026-da SaaS necə qurulur</span><span class="ru">Как строить SaaS в 2026</span><span class="en">How to build SaaS in 2026</span></h3>
+        <p class="blog-excerpt"><span class="az">Çoxları SaaS qurmağın texnologiya haqqında olduğunu düşünür. Əslində bu, problemin dəqiqliyi haqqındadır.</span><span class="ru">Многие думают, что SaaS — это про технологии. На самом деле — про точность понимания проблемы.</span><span class="en">Most people think building SaaS is about technology. It's actually about precision of problem definition.</span></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font-size:12px;color:var(--text-dim)">5 min read</span><span class="read-more"><span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →</span></div>
+      </a>
+      <a href="/en/blog/why-apps-fail" class="blog-card fade-in">
+        <span class="blog-tag"><span class="az">UĞURSUZLUQ</span><span class="ru">НЕУДАЧИ</span><span class="en">FAILURE</span></span>
+        <h3 class="blog-title"><span class="az">Niyə əksər tətbiqlər uğursuz olur</span><span class="ru">Почему большинство приложений проваливаются</span><span class="en">Why most apps fail</span></h3>
+        <p class="blog-excerpt"><span class="az">Texniki borclar deyil. Yanlış problem həll edilir. Biz 8 real nümunəni araşdırdıq.</span><span class="ru">Не технический долг. Решается не та проблема. Мы разобрали 8 реальных случаев.</span><span class="en">It's not technical debt. It's solving the wrong problem. We analyzed 8 real cases.</span></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font-size:12px;color:var(--text-dim)">8 min read</span><span class="read-more"><span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →</span></div>
+      </a>
+      <a href="/en/blog/automate-5" class="blog-card fade-in">
+        <span class="blog-tag"><span class="az">AVTOMATLAŞdirma</span><span class="ru">АВТОМАТИЗАЦИЯ</span><span class="en">AUTOMATION</span></span>
+        <h3 class="blog-title"><span class="az">Hər kiçik biznes avtomatlaşdıra biləcəyi 5 proses</span><span class="ru">5 процессов для автоматизации</span><span class="en">5 processes every business can automate now</span></h3>
+        <p class="blog-excerpt"><span class="az">Ödənişlər, xatırlatmalar, hesabatlar, müştəri onboardingi, inventar.</span><span class="ru">Платежи, напоминания, отчёты, онбординг, инвентарь.</span><span class="en">Payments, reminders, reports, customer onboarding, inventory. All automatable.</span></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><span style="font-size:12px;color:var(--text-dim)">6 min read</span><span class="read-more"><span class="az">Oxu</span><span class="ru">Читать</span><span class="en">Read</span> →</span></div>
+      </a>
     </div>
-
-    <!-- Lead Magnet -->
     <div style="margin-top:40px;background:linear-gradient(135deg,rgba(91,106,240,0.08),rgba(139,92,246,0.08));border:1px solid rgba(91,106,240,0.2);border-radius:16px;padding:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px" class="fade-in">
-      <div>
-        <div style="font-size:24px;margin-bottom:4px">📥</div>
-        <h3 style="font-size:22px;font-weight:800;margin-bottom:8px">
-          <span class="az">Pulsuz SaaS İdea Doğrulama Yoxlama Siyahısı</span>
-          <span class="ru">Бесплатный чеклист валидации SaaS-идеи</span>
-          <span class="en">Free SaaS Idea Validation Checklist</span>
-        </h3>
-        <p style="font-size:14px;color:var(--text-muted)">
-          <span class="az">Aylarca vaxt itirməzdən əvvəl ideanızın işləyəcəyini necə yoxlamaq olar</span>
-          <span class="ru">Как проверить, что ваша идея работает — до того, как потратить месяцы</span>
-          <span class="en">How to know your idea works before spending months building it</span>
-        </p>
-      </div>
-      <button class="btn-primary">
-        <span>
-          <span class="az">Yüklə (PDF)</span>
-          <span class="ru">Скачать (PDF)</span>
-          <span class="en">Download (PDF)</span>
-        </span> ↓
-      </button>
+      <div><div style="font-size:24px;margin-bottom:4px">📥</div><h3 style="font-size:22px;font-weight:800;margin-bottom:8px"><span class="az">Pulsuz SaaS İdea Doğrulama Yoxlama Siyahısı</span><span class="ru">Бесплатный чеклист валидации SaaS-идеи</span><span class="en">Free SaaS Idea Validation Checklist</span></h3><p style="font-size:14px;color:var(--text-muted)"><span class="az">Aylarca vaxt itirməzdən əvvəl ideanızın işləyəcəyini necə yoxlamaq olar</span><span class="ru">Как проверить, что ваша идея работает</span><span class="en">How to know your idea works before spending months building it</span></p></div>
+      <button class="btn-primary"><span><span class="az">Yüklə (PDF)</span><span class="ru">Скачать (PDF)</span><span class="en">Download (PDF)</span></span> ↓</button>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials" style="padding:100px 40px">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Müştərilər</span>
-      <span class="ru">Клиенты</span>
-      <span class="en">Clients</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">İnsanlar nə deyir</span>
-      <span class="ru">Что говорят люди</span>
-      <span class="en">What people say</span>
-    </h2>
-
+    <span class="section-label"><span class="az">Müştərilər</span><span class="ru">Клиенты</span><span class="en">Clients</span></span>
+    <h2 class="section-title fade-in"><span class="az">İnsanlar nə deyir</span><span class="ru">Что говорят люди</span><span class="en">What people say</span></h2>
     <div class="testimonials-grid">
-      <div class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">
-          <span class="az">"Datacolab sadəcə sayt qurmadı — biznesimizdə tam bir sistem inqilabı etdi. Ödəniş toplanmasımız 3 ay ərzində 40% artdı."</span>
-          <span class="ru">"Datacolab не просто сделали сайт — они произвели революцию в нашем бизнесе. Сборы платежей выросли на 40% за 3 месяца."</span>
-          <span class="en">"Datacolab didn't just build a website — they revolutionized how we operate. Payment collection went up 40% in 3 months."</span>
-        </p>
-        <div class="testi-author">
-          <div class="testi-avatar">EM</div>
-          <div>
-            <div class="testi-name">Elçin Məmmədov</div>
-            <div class="testi-role">
-              <span class="az">Mentorix — Qurucu</span>
-              <span class="ru">Mentorix — Основатель</span>
-              <span class="en">Mentorix — Founder</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">
-          <span class="az">"Kağız kartlardan tam rəqəmsal sistemə keçid cəmi 6 həftə çəkdi. İndi gündə 200+ xəstəni asanlıqla idarə edirik."</span>
-          <span class="ru">"Переход с бумажных карт на полностью цифровую систему занял всего 6 недель. Теперь мы легко управляем 200+ пациентами в день."</span>
-          <span class="en">"Moving from paper records to a full digital system took just 6 weeks. Now we handle 200+ patients daily with ease."</span>
-        </p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,var(--accent3),#00b4d8)">NH</div>
-          <div>
-            <div class="testi-name">Nigar Həsənova</div>
-            <div class="testi-role">
-              <span class="az">Medpanel — Klinika Direktoru</span>
-              <span class="ru">Medpanel — Директор клиники</span>
-              <span class="en">Medpanel — Clinic Director</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card fade-in">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-quote">
-          <span class="az">"Onlarla işləmək fərqlidir. Öncə problemi başa düşürlər, sonra qururlar. Bu yanaşma adi inkişaf şirkətlərindən tamamilə fərqlidir."</span>
-          <span class="ru">"Работать с ними — это другой опыт. Сначала понимают проблему, потом строят. Это полностью отличается от обычных разработчиков."</span>
-          <span class="en">"Working with them is different. They understand the problem first, then build. Completely different from typical dev shops."</span>
-        </p>
-        <div class="testi-author">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,var(--yellow),#f05b5b)">RB</div>
-          <div>
-            <div class="testi-name">Rəşad Babayev</div>
-            <div class="testi-role">
-              <span class="az">EduTech AZ — CTO</span>
-              <span class="ru">EduTech AZ — CTO</span>
-              <span class="en">EduTech AZ — CTO</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-quote"><span class="az">"Datacolab sadəcə sayt qurmadı — biznesimizdə tam bir sistem inqilabı etdi. Ödəniş toplanmasımız 3 ay ərzində 40% artdı."</span><span class="ru">"Datacolab не просто сделали сайт — они произвели революцию в нашем бизнесе."</span><span class="en">"Datacolab didn't just build a website — they revolutionized how we operate. Payment collection went up 40% in 3 months."</span></p><div class="testi-author"><div class="testi-avatar">EM</div><div><div class="testi-name">Elçin Məmmədov</div><div class="testi-role"><span class="az">Mentorix — Qurucu</span><span class="ru">Mentorix — Основатель</span><span class="en">Mentorix — Founder</span></div></div></div></div>
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-quote"><span class="az">"Kağız kartlardan tam rəqəmsal sistemə keçid cəmi 6 həftə çəkdi. İndi gündə 200+ xəstəni asanlıqla idarə edirik."</span><span class="ru">"Переход с бумажных карт на полностью цифровую систему занял всего 6 недель."</span><span class="en">"Moving from paper records to a full digital system took just 6 weeks. Now we handle 200+ patients daily."</span></p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,var(--accent3),#00b4d8)">NH</div><div><div class="testi-name">Nigar Həsənova</div><div class="testi-role"><span class="az">Medpanel — Klinika Direktoru</span><span class="ru">Medpanel — Директор клиники</span><span class="en">Medpanel — Clinic Director</span></div></div></div></div>
+      <div class="testi-card fade-in"><div class="testi-stars">★★★★★</div><p class="testi-quote"><span class="az">"Onlarla işləmək fərqlidir. Öncə problemi başa düşürlər, sonra qururlar."</span><span class="ru">"Работать с ними — это другой опыт. Сначала понимают проблему, потом строят."</span><span class="en">"Working with them is different. They understand the problem first, then build."</span></p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,var(--yellow),#f05b5b)">RB</div><div><div class="testi-name">Rəşad Babayev</div><div class="testi-role"><span class="az">EduTech AZ — CTO</span><span class="ru">EduTech AZ — CTO</span><span class="en">EduTech AZ — CTO</span></div></div></div></div>
     </div>
   </div>
 </section>
 
 <div class="section-divider"></div>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <span class="section-label">
-      <span class="az">Əlaqə</span>
-      <span class="ru">Связь</span>
-      <span class="en">Contact</span>
-    </span>
-    <h2 class="section-title fade-in">
-      <span class="az">Layihənizi başlayaq</span>
-      <span class="ru">Начнём ваш проект</span>
-      <span class="en">Let's start your project</span>
-    </h2>
-    <p class="section-sub fade-in">
-      <span class="az">Layihə haqqında danışmaq üçün formu doldurun. 24 saat ərzində cavab veririk.</span>
-      <span class="ru">Заполните форму, чтобы обсудить проект. Отвечаем в течение 24 часов.</span>
-      <span class="en">Fill out the form to discuss your project. We respond within 24 hours.</span>
-    </p>
-
+    <span class="section-label"><span class="az">Əlaqə</span><span class="ru">Связь</span><span class="en">Contact</span></span>
+    <h2 class="section-title fade-in"><span class="az">Layihənizi başlayaq</span><span class="ru">Начнём ваш проект</span><span class="en">Let's start your project</span></h2>
+    <p class="section-sub fade-in"><span class="az">Layihə haqqında danışmaq üçün formu doldurun. 24 saat ərzində cavab veririk.</span><span class="ru">Заполните форму. Отвечаем в течение 24 часов.</span><span class="en">Fill out the form. We respond within 24 hours.</span></p>
     <div class="contact-grid">
       <div class="contact-info">
-        <a class="contact-method" href="https://wa.me/994553775770" target="_blank">
-          <div class="method-icon">💬</div>
-          <div>
-            <div class="method-title">WhatsApp</div>
-            <div class="method-sub">
-              <span class="az">Birbaşa yazın</span>
-              <span class="ru">Пишите напрямую</span>
-              <span class="en">Message directly</span>
-            </div>
-          </div>
-        </a>
-        <a class="contact-method" href="https://t.me/datacolab" target="_blank">
-          <div class="method-icon">✈️</div>
-          <div>
-            <div class="method-title">Telegram</div>
-            <div class="method-sub">@datacolab</div>
-          </div>
-        </a>
-        <a class="contact-method" href="mailto:info@datacolab.co">
-          <div class="method-icon">📧</div>
-          <div>
-            <div class="method-title">Email</div>
-            <div class="method-sub">info@datacolab.co</div>
-          </div>
-        </a>
-        <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px">
-          <div style="font-size:13px;font-weight:700;margin-bottom:8px">
-            <span class="az">🗓 Zəng planla</span>
-            <span class="ru">🗓 Забронировать звонок</span>
-            <span class="en">🗓 Book a call</span>
-          </div>
-          <div style="font-size:13px;color:var(--text-muted);margin-bottom:16px">
-            <span class="az">30 dəqiqəlik pulsuz konsultasiya</span>
-            <span class="ru">30-минутная бесплатная консультация</span>
-            <span class="en">30-minute free consultation</span>
-          </div>
-          <button class="btn-secondary" style="width:100%;justify-content:center">
-            <span class="az">Slot seçin</span>
-            <span class="ru">Выбрать время</span>
-            <span class="en">Pick a slot</span>
-          </button>
-        </div>
+        <a class="contact-method" href="https://wa.me/994553775770" target="_blank"><div class="method-icon">💬</div><div><div class="method-title">WhatsApp</div><div class="method-sub"><span class="az">Birbaşa yazın</span><span class="ru">Пишите напрямую</span><span class="en">Message directly</span></div></div></a>
+        <a class="contact-method" href="https://t.me/datacolab" target="_blank"><div class="method-icon">✈️</div><div><div class="method-title">Telegram</div><div class="method-sub">@datacolab</div></div></a>
+        <a class="contact-method" href="mailto:info@datacolab.co"><div class="method-icon">📧</div><div><div class="method-title">Email</div><div class="method-sub">info@datacolab.co</div></div></a>
+        <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:20px"><div style="font-size:13px;font-weight:700;margin-bottom:8px"><span class="az">🗓 Zəng planla</span><span class="ru">🗓 Забронировать звонок</span><span class="en">🗓 Book a call</span></div><div style="font-size:13px;color:var(--text-muted);margin-bottom:16px"><span class="az">30 dəqiqəlik pulsuz konsultasiya</span><span class="ru">30-минутная бесплатная консультация</span><span class="en">30-minute free consultation</span></div><button class="btn-secondary" style="width:100%;justify-content:center"><span class="az">Slot seçin</span><span class="ru">Выбрать время</span><span class="en">Pick a slot</span></button></div>
       </div>
-
       <form class="contact-form" action="https://formspree.io/f/xpqbwvwj" method="POST">
         <div class="form-row">
-          <div class="form-field">
-            <label>
-              <span class="az">Ad</span><span class="ru">Имя</span><span class="en">Name</span>
-            </label>
-            <input type="text" placeholder="Elçin Məmmədov" required>
-          </div>
-          <div class="form-field">
-            <label>
-              <span class="az">Email</span><span class="ru">Email</span><span class="en">Email</span>
-            </label>
-            <input type="email" placeholder="elcin@company.az" required>
-          </div>
+          <div class="form-field"><label><span class="az">Ad</span><span class="ru">Имя</span><span class="en">Name</span></label><input type="text" name="name" placeholder="Elçin Məmmədov" required></div>
+          <div class="form-field"><label>Email</label><input type="email" name="email" placeholder="elcin@company.az" required></div>
         </div>
-        <div class="form-field">
-          <label>
-            <span class="az">Biznes növü</span>
-            <span class="ru">Тип бизнеса</span>
-            <span class="en">Business type</span>
-          </label>
-          <select>
-            <option><span class="az">Təhsil</span><span class="ru">Образование</span><span class="en">Education</span></option>
-            <option><span class="az">Tibb</span><span class="ru">Медицина</span><span class="en">Healthcare</span></option>
-            <option><span class="az">E-ticarət</span><span class="ru">E-commerce</span><span class="en">E-commerce</span></option>
-            <option><span class="az">Digər</span><span class="ru">Другое</span><span class="en">Other</span></option>
-          </select>
-        </div>
-        <div class="form-field">
-          <label>
-            <span class="az">Layihəniz haqqında danışın</span>
-            <span class="ru">Расскажите о вашем проекте</span>
-            <span class="en">Tell us about your project</span>
-          </label>
-          <textarea placeholder="We need to build..."></textarea>
-        </div>
-        <button type="submit" class="submit-btn">
-          <span class="az">Mesaj göndər</span>
-          <span class="ru">Отправить сообщение</span>
-          <span class="en">Send message</span>
-          <span>→</span>
-        </button>
+        <div class="form-field"><label><span class="az">Biznes növü</span><span class="ru">Тип бизнеса</span><span class="en">Business type</span></label><select name="bizType"><option value="edu">Təhsil / Education</option><option value="clinic">Tibb / Healthcare</option><option value="retail">E-ticarət / E-commerce</option><option value="other">Digər / Other</option></select></div>
+        <div class="form-field"><label><span class="az">Layihəniz haqqında</span><span class="ru">О вашем проекте</span><span class="en">Tell us about your project</span></label><textarea name="message" placeholder="We need to build..." required></textarea></div>
+        <button type="submit" class="submit-btn"><span class="az">Mesaj göndər</span><span class="ru">Отправить сообщение</span><span class="en">Send message</span> →</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><span style="color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:22px;">data</span><span style="background:linear-gradient(135deg,#5b6af0,#06d6a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:'Syne',sans-serif;font-weight:800;font-size:22px;">colab</span></div>
-        <p class="footer-tagline">
-          <span class="az">Sistem qurucuları. Freelancer deyilik, agency deyilik.</span>
-          <span class="ru">Строители систем. Не фрилансеры, не агентство.</span>
-          <span class="en">System builders. Not freelancers, not an agency.</span>
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>
-          <span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span>
-        </h4>
-        <ul>
-          <li><a href="#">SaaS Development</a></li>
-          <li><a href="#">Automation</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Consulting</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>
-          <span class="az">Şirkət</span><span class="ru">Компания</span><span class="en">Company</span>
-        </h4>
-        <ul>
-          <li><a href="#">
-            <span class="az">Haqqımızda</span><span class="ru">О нас</span><span class="en">About</span>
-          </a></li>
-          <li><a href="#">
-            <span class="az">Keyslərimiz</span><span class="ru">Кейсы</span><span class="en">Case Studies</span>
-          </a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>
-          <span class="az">Əlaqə</span><span class="ru">Контакты</span><span class="en">Contact</span>
-        </h4>
-        <ul>
-          <li><a href="mailto:info@datacolab.co">info@datacolab.co</a></li>
-          <li><a href="#">Telegram</a></li>
-          <li><a href="#">WhatsApp</a></li>
-          <li><a href="#">
-            <span class="az">Zəng planla</span><span class="ru">Забронировать</span><span class="en">Book a call</span>
-          </a></li>
-        </ul>
-      </div>
+      <div><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:22px;margin-bottom:12px"><span style="color:#fff">data</span><span style="background:linear-gradient(135deg,#5b6af0,#06d6a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">colab</span></div><p class="footer-tagline"><span class="az">Sistem qurucuları. Freelancer deyilik, agency deyilik.</span><span class="ru">Строители систем. Не фрилансеры, не агентство.</span><span class="en">System builders. Not freelancers, not an agency.</span></p></div>
+      <div class="footer-col"><h4><span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span></h4><ul><li><a href="/#services">SaaS Development</a></li><li><a href="/#services">Automation</a></li><li><a href="/#services">Analytics</a></li><li><a href="/#services">Consulting</a></li></ul></div>
+      <div class="footer-col"><h4><span class="az">Şirkət</span><span class="ru">Компания</span><span class="en">Company</span></h4><ul><li><a href="/en/cases"><span class="az">Keyslərimiz</span><span class="ru">Кейсы</span><span class="en">Case Studies</span></a></li><li><a href="/en/blog">Blog</a></li><li><a href="/en/roi">ROI Calculator</a></li><li><a href="/admin">Admin</a></li></ul></div>
+      <div class="footer-col"><h4><span class="az">Əlaqə</span><span class="ru">Контакты</span><span class="en">Contact</span></h4><ul><li><a href="mailto:info@datacolab.co">info@datacolab.co</a></li><li><a href="https://t.me/datacolab">Telegram</a></li><li><a href="https://wa.me/994553775770">WhatsApp</a></li><li><a href="/#contact"><span class="az">Zəng planla</span><span class="ru">Забронировать</span><span class="en">Book a call</span></a></li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Datacolab<span class="footer-dot"></span>
-        <span class="az">Bütün hüquqlar qorunur</span>
-        <span class="ru">Все права защищены</span>
-        <span class="en">All rights reserved</span>
-      </span>
-      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em">
-        <span class="az">SİSTEM QURUCULARI</span>
-        <span class="ru">СТРОИТЕЛИ СИСТЕМ</span>
-        <span class="en">SYSTEM BUILDERS</span>
-      </span>
+      <span>© 2026 Datacolab<span class="footer-dot"></span><span class="az">Bütün hüquqlar qorunur</span><span class="ru">Все права защищены</span><span class="en">All rights reserved</span></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.1em"><span class="az">SİSTEM QURUCULARI</span><span class="ru">СТРОИТЕЛИ СИСТЕМ</span><span class="en">SYSTEM BUILDERS</span></span>
     </div>
   </div>
 </footer>
 
 <script>
-// LANGUAGE
+const API = 'https://datacolab-production.up.railway.app';
+
+async function loadSiteData() {
+  try {
+    const r = await fetch(`${API}/public/data`);
+    if (!r.ok) return;
+    const data = await r.json();
+    const proj = data.stats?.find(s => s.key === 'active_projects');
+    if (proj) {
+      ['active-count','active-count-ru','active-count-en'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = proj.value;
+      });
+    }
+    const sys = data.stats?.find(s => s.key === 'systems_built');
+    if (sys) { const el = document.getElementById('stat-systems'); if (el) el.textContent = sys.value + '+'; }
+    if (data.content?.hero_sub) {
+      const sub = document.getElementById('hero-sub');
+      if (sub) {
+        const langs = ['az','ru','en'];
+        langs.forEach(l => {
+          const el = sub.querySelector('.' + l);
+          if (el && data.content.hero_sub[l]) el.textContent = data.content.hero_sub[l];
+        });
+      }
+    }
+  } catch(e) { /* use static */ }
+}
+
 function setLang(lang) {
   document.documentElement.setAttribute('data-lang', lang);
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    if(btn.textContent.trim().toLowerCase() === lang) btn.classList.add('active');
+    if (btn.textContent.trim().toLowerCase() === lang) btn.classList.add('active');
   });
 }
 
-// THEME
 function toggleTheme() {
   const html = document.documentElement;
   html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
 }
 
-// ROI CALCULATOR
-function updateLabel(v) {
-  ['cust-label','cust-label2','cust-label3'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.textContent = v;
-  });
-}
-function updateHours(v) {
-  ['hours-label','hours-label2','hours-label3'].forEach(id => {
-    const el = document.getElementById(id);
-    if(el) el.textContent = v;
-  });
-}
+function updateLabel(v) { ['cust-label','cust-label2','cust-label3'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = v; }); }
+function updateHours(v) { ['hours-label','hours-label2','hours-label3'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = v; }); }
 function calcROI() {
   const hours = parseInt(document.getElementById('manual-hours').value);
   const rate = parseInt(document.getElementById('hourly-rate').value) || 15;
@@ -1514,21 +507,13 @@ function calcROI() {
 }
 calcROI();
 
-// FORM
-
-
-// SCROLL ANIMATIONS
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Initialize language
 setLang('en');
+loadSiteData();
 </script>
 </body>
 </html>
