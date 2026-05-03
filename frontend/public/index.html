@@ -159,7 +159,131 @@ footer{padding:60px 40px 40px;background:var(--bg);border-top:1px solid var(--bo
 .demo-title{font-size:16px;font-weight:700;margin-bottom:6px}
 .demo-sub{font-size:13px;color:var(--text-muted)}
 .demo-badge{display:inline-block;font-size:10px;font-family:'JetBrains Mono',monospace;padding:3px 8px;border-radius:4px;background:rgba(6,214,160,0.1);color:var(--accent3);border:1px solid rgba(6,214,160,0.2);margin-bottom:8px;letter-spacing:0.1em;text-transform:uppercase}
-@media(max-width:768px){nav{padding:14px 20px}section{padding:80px 20px}.hero-h1{font-size:42px}.case-grid,.services-grid,.process-grid,.blog-grid,.testimonials-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}.roi-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.nav-links{display:none}.hero-stats{gap:24px}.trusted-inner{flex-direction:column;gap:16px}}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:var(--surface);z-index:999;transition:right 0.35s cubic-bezier(0.4,0,0.2,1);padding:80px 28px 40px;display:flex;flex-direction:column;gap:8px;border-left:1px solid var(--border);box-shadow:-20px 0 60px rgba(0,0,0,0.4)}
+.mobile-menu.open{right:0}
+.mobile-menu a{color:var(--text);text-decoration:none;font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-family:'Syne',sans-serif;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu-cta{margin-top:auto;background:var(--accent);color:#fff;border:none;padding:16px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;width:100%;text-align:center}
+.mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(4px)}
+.mobile-overlay.open{opacity:1;pointer-events:all}
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;padding:16px 20px;padding-bottom:calc(16px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--bg) 70%,transparent);z-index:500;display:none}
+.sticky-cta-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif;box-shadow:0 8px 32px rgba(91,106,240,0.4)}
+
+/* ===== TABLET ===== */
+@media(max-width:1024px){
+  .case-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .hero-h1{font-size:clamp(40px,6vw,72px)}
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  /* Nav */
+  nav{padding:14px 20px;padding-top:calc(14px + env(safe-area-inset-top))}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .cta-nav{display:none}
+
+  /* Hero */
+  section{padding:72px 20px}
+  #hero{padding-top:80px;padding-bottom:40px;min-height:auto}
+  .hero-h1{font-size:clamp(36px,9vw,52px);line-height:1.1;margin-bottom:20px}
+  .hero-sub{font-size:16px;margin-bottom:32px}
+  .hero-badge{margin-bottom:28px;flex-wrap:wrap}
+  .badge-text{font-size:11px}
+  .hero-ctas{flex-direction:column;gap:12px;margin-bottom:48px}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:16px 24px;font-size:16px;min-height:52px;border-radius:14px}
+  .hero-stats{gap:0;display:grid;grid-template-columns:1fr 1fr;row-gap:24px}
+  .hero-stats .stat:last-child{grid-column:1/-1}
+  .stat-num{font-size:28px}
+  .stat-label{font-size:12px}
+
+  /* Trusted */
+  .trusted-bar{padding:20px}
+  .trusted-inner{flex-direction:column;gap:12px}
+  .trusted-logos{flex-wrap:wrap;gap:16px;justify-content:center}
+
+  /* Sections */
+  .section-title{font-size:clamp(26px,7vw,38px);margin-bottom:14px}
+  .section-sub{font-size:15px}
+
+  /* Cases */
+  .case-grid{grid-template-columns:1fr;gap:16px}
+  .case-card{padding:24px}
+  .case-title{font-size:22px}
+  .case-number{font-size:48px;top:16px;right:16px}
+
+  /* Demo */
+  #demo{padding:60px 20px}
+  .demo-grid{grid-template-columns:1fr;gap:16px}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:14px}
+  .service-card{padding:24px}
+  .service-title{font-size:17px}
+
+  /* Process */
+  .process-grid{grid-template-columns:1fr;gap:14px}
+  .process-grid::before{display:none}
+  .process-card{padding:20px 24px;text-align:left;display:flex;gap:16px;align-items:flex-start}
+  .process-num{width:48px;height:48px;min-width:48px;border-radius:12px;font-size:16px;margin:0}
+  .process-title{font-size:15px;margin-bottom:6px}
+  .process-desc{font-size:13px}
+
+  /* ROI */
+  .roi-card{padding:24px}
+  .roi-grid{grid-template-columns:1fr;gap:28px}
+  .roi-number{font-size:48px}
+  .roi-field select,.roi-field input{font-size:16px;padding:14px 16px}
+
+  /* Blog */
+  .blog-grid{grid-template-columns:1fr;gap:14px}
+  .blog-card{padding:24px}
+  .blog-title{font-size:17px}
+
+  /* Testimonials */
+  .testimonials-grid{grid-template-columns:1fr;gap:14px}
+  .testi-card{padding:22px}
+
+  /* Contact */
+  #contact{padding:72px 20px}
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .form-row{grid-template-columns:1fr}
+  .form-field input,.form-field textarea,.form-field select{font-size:16px;padding:14px 16px}
+  .form-field textarea{min-height:100px}
+  .submit-btn{padding:16px;font-size:16px;min-height:52px;border-radius:14px}
+
+  /* Footer */
+  footer{padding:48px 20px 80px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+
+  /* Sticky CTA */
+  .sticky-cta{display:block}
+}
+
+/* ===== SMALL MOBILE ===== */
+@media(max-width:390px){
+  .hero-h1{font-size:34px}
+  .hero-stats{grid-template-columns:1fr}
+  .hero-stats .stat:last-child{grid-column:auto}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+/* iPhone safe area */
+@supports(padding:max(0px)){
+  nav{padding-top:max(14px,env(safe-area-inset-top))}
+  .mobile-menu{padding-top:max(80px,calc(60px + env(safe-area-inset-top)))}
+  .sticky-cta{padding-bottom:max(16px,env(safe-area-inset-bottom))}
+}
 </style>
 </head>
 <body>
@@ -181,8 +305,31 @@ footer{padding:60px 40px 40px;background:var(--bg);border-top:1px solid var(--bo
     </div>
     <button class="theme-btn" onclick="toggleTheme()">◑</button>
     <button class="cta-nav" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})"><span class="az">Layihə başlat</span><span class="ru">Начать проект</span><span class="en">Start a Project</span></button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="/en/cases" onclick="closeMenu()">💼 <span class="az">Keyslərimiz</span><span class="ru">Кейсы</span><span class="en">Case Studies</span></a>
+  <a href="/#services" onclick="closeMenu()">⚙️ <span class="az">Xidmətlər</span><span class="ru">Услуги</span><span class="en">Services</span></a>
+  <a href="/#process" onclick="closeMenu()">🔄 <span class="az">Proses</span><span class="ru">Процесс</span><span class="en">Process</span></a>
+  <a href="/en/roi" onclick="closeMenu()">📊 <span class="az">ROI Hesablayıcı</span><span class="ru">Калькулятор</span><span class="en">ROI Calculator</span></a>
+  <a href="/en/blog" onclick="closeMenu()">✍️ <span class="az">Blog</span><span class="ru">Блог</span><span class="en">Blog</span></a>
+  <button class="mobile-menu-cta" onclick="closeMenu();document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+    <span class="az">Layihə başlat →</span><span class="ru">Начать проект →</span><span class="en">Start a Project →</span>
+  </button>
+</div>
+
+<!-- Sticky Mobile CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <button class="sticky-cta-btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+    <span class="az">Layihə başlat →</span><span class="ru">Начать проект →</span><span class="en">Start a Project →</span>
+  </button>
+</div>
 
 <section id="hero">
   <div class="hero-glow"></div>
@@ -514,6 +661,36 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 setLang('en');
 loadSiteData();
+
+// Mobile menu
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('overlay');
+  const hamburger = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Sticky CTA — show after hero
+const stickyCta = document.getElementById('sticky-cta');
+if (stickyCta) {
+  window.addEventListener('scroll', () => {
+    const heroH = document.getElementById('hero')?.offsetHeight || 600;
+    stickyCta.style.display = window.scrollY > heroH ? 'block' : 'none';
+  });
+}
+
+// Close menu on escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 </script>
 </body>
 </html>
