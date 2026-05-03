@@ -35,7 +35,7 @@ export default function CasesPage() {
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
           {cases.map(c => (
-            <div key={c.num} style={{ background: '#15151e', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: 40, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'center' }}>
+            <div key={c.num} style={{ background: '#15151e', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 16, padding: 40, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 600px), 1fr))', gap: 40, alignItems: 'center' }}>
               <div>
                 <div style={{ fontSize: 64, fontWeight: 800, color: 'rgba(255,255,255,0.05)', lineHeight: 1, marginBottom: 8 }}>{c.num}</div>
                 <span style={{ fontSize: 11, padding: '3px 10px', borderRadius: 4, background: c.color + '15', color: c.color, border: `1px solid ${c.color}33`, fontFamily: 'monospace', letterSpacing: '0.1em', display: 'inline-block', marginBottom: 16 }}>{c.tag}</span>
