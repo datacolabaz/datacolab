@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteNavbar from '@/components/layout/SiteNavbar';
 
 const cases = [
   {
@@ -62,9 +63,4 @@ export default function CasesPage() {
           ))}
         </div>
         <div style={{ marginTop: 60, textAlign: 'center' }}>
-          <Link href="/" style={{ color: '#5b6af0', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>← Ana səhifəyə qayıt</Link>
-        </div>
-      </div>
-    </main>
-  );
-}
+          <Link href="/" style={{ color: '#5b6af0', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>← Ana səhifəyə qay

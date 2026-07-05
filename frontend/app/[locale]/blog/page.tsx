@@ -1,6 +1,7 @@
 'use client';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import SiteNavbar from '@/components/layout/SiteNavbar';
 
 const posts = [
   { slug: 'saas-2026', tag: 'SAAS', title_az: '2026-da SaaS necə qurulur', title_en: 'How to build SaaS in 2026', title_ru: 'Как строить SaaS в 2026', excerpt_az: 'Çoxları SaaS qurmağın texnologiya haqqında olduğunu düşünür.', read_time: '5 dəq' },
@@ -35,9 +36,4 @@ export default function BlogPage() {
           ))}
         </div>
         <div style={{ marginTop: 60, textAlign: 'center' }}>
-          <Link href="/" style={{ color: '#5b6af0', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>← Ana səhifəyə qayıt</Link>
-        </div>
-      </div>
-    </main>
-  );
-}
+          <Link href="/" style={{ color: '#5b6af0', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>← Ana səhifəyə qay
